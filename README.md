@@ -21,6 +21,7 @@ The application will be composed of these main components:
 
 All of these components will work to build the application. The main application will be the runner of Your Mortgage Buddy, Controller class will control user input and display the output, CSVStream class will be responsible for saving and loading loan information, MonthData class will hold payment information for a specific month and Calculations class will be responsible for the calculations of the desired payment schedule while also being able to handle calculations if postponement is added.
 ## Use case diagram
+![Use case diagram](res/use_case.png)
 ## Activity case diagram
 ![Diagram](activity.png)
 ## Technologies
@@ -29,6 +30,6 @@ Qt library and tools for C++.
 The table below will contain information about the work and time spent on this project.
 | Julius Jauga | Aurelijus Lukšas | Rokas Baliutavičius |
 |------ | ------ | ------ | 
-| README.MD writing, activity case diagram  __2 h 30 min__ (**P1**)| Use case diagram __1 hour__ (**P1**)| |
+| README.MD writing, activity case diagram  __2 h 30 min__ (**P1**)| Use case diagram __1 hour__ (**P1**)|Proofreading, use case diagram  __45 minutes__ (**P1**) |
 
 **Grade will be shared equally between members.**
