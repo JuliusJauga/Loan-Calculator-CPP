@@ -23,7 +23,7 @@ All of these components will work to build the application. The main application
 ## Use case diagram
 ![Use case diagram](res/use_case.png)
 ## Activity case diagram
-![Diagram](activity.png)
+![Diagram](res/activity.png)
 ## Technologies
 Qt library and tools for C++.
 ## Report
