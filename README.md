@@ -34,4 +34,5 @@ The table below will contain information about the work and time spent on this p
 | Added a Qt project to the repository. Implemented basic functionality to the GUI, including layout setup and basic input checking. Created a MonthInfo class to represent monthly payment information. Implemented a Calculations class responsible for generating lists for month information. __5 h__ (**P2**) | |
 
 **Grade will be shared equally between members.**
+
 __2024-04-01__ Calculations class needs testing and fixing. Input checking should be improved. GUI layout will have to be remade.
