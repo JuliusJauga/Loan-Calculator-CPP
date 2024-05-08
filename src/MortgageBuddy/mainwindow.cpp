@@ -96,6 +96,7 @@ int MainWindow::getData() {
  * @author Julius Jauga
  */
 void MainWindow::fillView(std::vector<MonthInfo> list) {
+    ui->month_list->isEnabled();
     ui->month_list->clear();
     for (size_t i = 0; i <= list.size() - 1; ++i) {
         QStringList rowData;
@@ -106,6 +107,16 @@ void MainWindow::fillView(std::vector<MonthInfo> list) {
         ui->month_list->addTopLevelItem(new QTreeWidgetItem(rowData));
     }
 }
+
+/**
+ * @brief Creates line graph for later use.
+ *
+ * This method initializes components needed for displaying the monthly payment line graph.
+ * This includes adding X and Y axes to the graph, setting their titles and numeration format.
+ *
+ * @author Rokas Baliutavičius
+ */
+
 void MainWindow::createGraph() {
     series = new QLineSeries();
     chart = new QChart;
@@ -113,7 +124,7 @@ void MainWindow::createGraph() {
     axisY = new QValueAxis();
     chart->addSeries(series);
     chartView = new QChartView(chart);
-     ui->verticalLayout->addWidget(chartView);
+    ui->verticalLayout->addWidget(chartView);
     chart->addAxis(axisX, Qt::AlignBottom);
     chart->addAxis(axisY, Qt::AlignLeft);
 
@@ -121,22 +132,33 @@ void MainWindow::createGraph() {
     series->attachAxis(axisX);
     series->attachAxis(axisY);
 
-    axisX->setTitleText("Month");
-    axisY->setTitleText("Monthly Payment");
+    axisX->setTitleText("Month");           // X axis title
+    axisY->setTitleText("Monthly Payment"); // Y axis title
 
-    axisX->setLabelFormat("%.0f");
-    axisY->setLabelFormat("%.2f");
+    axisX->setLabelFormat("%.0f");          // Format month numeration
+    axisY->setLabelFormat("%.2f");          // Format currency numeration
 
     chart->legend()->hide();
-    // chart->createDefaultAxes();
 }
+
+/**
+ * @brief Re-draws the line graph with calculated data.
+ *
+ * This method is used for re-drawing the monthly payment line graph upon pressing "Calculate" button.
+ * The process includes adding new data to the series as well as adjusting the scale of the axes based on the new data.
+ *
+ * @param list The vector of MonthInfo objects containing the loan payment information.
+ *
+ * @author Rokas Baliutavičius
+ */
+
 void MainWindow::drawGraph(std::vector<MonthInfo> list) {
     series->clear();
 
     double biggestPayment = 0;
     for (size_t i = 0; i < list.size(); ++i) {
         series->append(list[i].getMonth(), list[i].getMonthlyPayment());
-        if (list[i].getMonthlyPayment() > biggestPayment) biggestPayment = list[i].getMonthlyPayment();
+        if (list[i].getMonthlyPayment() > biggestPayment) biggestPayment = list[i].getMonthlyPayment(); // Getting the biggest monthly payment for Y axis scale
     }
 
     // Set range of X and Y axes

@@ -132,6 +132,9 @@
     </property>
    </widget>
    <widget class="QTreeWidget" name="month_list">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -140,6 +143,9 @@
       <height>391</height>
      </rect>
     </property>
+    <attribute name="headerVisible">
+     <bool>true</bool>
+    </attribute>
     <column>
      <property name="text">
       <string notr="true">1</string>
@@ -331,6 +337,9 @@
     </property>
    </widget>
    <widget class="QWidget" name="chartWidget" native="true">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>700</x>
