@@ -3,6 +3,13 @@
 #include <QTreeWidget>
 #include <QTreeWidgetItem>
 #include "calculations.h"
+
+QLineSeries *series;
+QChart *chart;
+QValueAxis *axisX;
+QValueAxis *axisY;
+QChartView *chartView;
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -14,6 +21,7 @@ MainWindow::MainWindow(QWidget *parent)
     QStringList headers;
     headers << "Month" << "Monthly Payment" << "Interest Payment" << "Remaining Balance";
     ui->month_list->setHeaderLabels(headers);
+    createGraph();
 }
 
 MainWindow::~MainWindow()
@@ -28,6 +36,7 @@ void MainWindow::on_calculate_button_clicked()
     }
     Calculations newCalculations(loan_amount, annual_percent, years, months, delay_start, delay_end, is_annuit, is_linear);
     fillView(newCalculations.getList());
+    drawGraph(newCalculations.getList());
 }
 
 
@@ -97,4 +106,43 @@ void MainWindow::fillView(std::vector<MonthInfo> list) {
         ui->month_list->addTopLevelItem(new QTreeWidgetItem(rowData));
     }
 }
+void MainWindow::createGraph() {
+    series = new QLineSeries();
+    chart = new QChart;
+    axisX = new QValueAxis();
+    axisY = new QValueAxis();
+    chart->addSeries(series);
+    chartView = new QChartView(chart);
+     ui->verticalLayout->addWidget(chartView);
+    chart->addAxis(axisX, Qt::AlignBottom);
+    chart->addAxis(axisY, Qt::AlignLeft);
+
+    // Attach the series to the axes
+    series->attachAxis(axisX);
+    series->attachAxis(axisY);
+
+    axisX->setTitleText("Month");
+    axisY->setTitleText("Monthly Payment");
+
+    axisX->setLabelFormat("%.0f");
+    axisY->setLabelFormat("%.2f");
+
+    chart->legend()->hide();
+    // chart->createDefaultAxes();
+}
+void MainWindow::drawGraph(std::vector<MonthInfo> list) {
+    series->clear();
+
+    double biggestPayment = 0;
+    for (size_t i = 0; i < list.size(); ++i) {
+        series->append(list[i].getMonth(), list[i].getMonthlyPayment());
+        if (list[i].getMonthlyPayment() > biggestPayment) biggestPayment = list[i].getMonthlyPayment();
+    }
+
+    // Set range of X and Y axes
+    axisX->setRange(0, list.size() + 1);
+    axisY->setRange(0, biggestPayment + biggestPayment * 0.1);
+}
+
+
 

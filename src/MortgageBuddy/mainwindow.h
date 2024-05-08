@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QTCharts>
+#include <QChartView>
+#include <QLineSeries>
 #include "monthinfo.h"
 #include <vector>
 QT_BEGIN_NAMESPACE
@@ -36,6 +39,8 @@ private:
     bool is_annuit;
     bool is_linear;
     int getData();
+    void createGraph();
     void fillView(std::vector<MonthInfo> list);
+    void drawGraph(std::vector<MonthInfo> list);
 };
 #endif // MAINWINDOW_H
