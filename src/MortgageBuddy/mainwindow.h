@@ -42,5 +42,6 @@ private:
     void createGraph();
     void fillView(std::vector<MonthInfo> list);
     void drawGraph(std::vector<MonthInfo> list);
+    void printGraphAsPDF();
 };
 #endif // MAINWINDOW_H

@@ -2,6 +2,9 @@
 #include "ui_mainwindow.h"
 #include <QTreeWidget>
 #include <QTreeWidgetItem>
+// #include <QFileDialog>
+#include <QPdfWriter>
+#include <QPainter>
 #include "calculations.h"
 
 QLineSeries *series;
@@ -166,5 +169,18 @@ void MainWindow::drawGraph(std::vector<MonthInfo> list) {
     axisY->setRange(0, biggestPayment + biggestPayment * 0.1);
 }
 
+void MainWindow::printGraphAsPDF() {
+    QPdfWriter writer("chart.pdf");
+    writer.setPageSize(QPageSize(QPageSize::A4));
+
+    QPainter painter(&writer);
+
+    QSizeF size = chartView->size();
+    QPointF pos = chartView->pos();
+
+    chartView->render(&painter, QRectF(QPointF(0, 0), size), chartView->rect());
+
+    painter.end();
+}
 
 
