@@ -412,6 +412,23 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>calculate_button</tabstop>
+  <tabstop>annuit_box</tabstop>
+  <tabstop>linear_box</tabstop>
+  <tabstop>month_list</tabstop>
+  <tabstop>loan_amount_line</tabstop>
+  <tabstop>annual_percent_line</tabstop>
+  <tabstop>year_line</tabstop>
+  <tabstop>month_line</tabstop>
+  <tabstop>start_year_line</tabstop>
+  <tabstop>start_month_line</tabstop>
+  <tabstop>end_year_line</tabstop>
+  <tabstop>end_month_line</tabstop>
+  <tabstop>saveChartPDF</tabstop>
+  <tabstop>startDateSlider</tabstop>
+  <tabstop>endDateSlider</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

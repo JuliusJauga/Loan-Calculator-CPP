@@ -28,6 +28,8 @@ private slots:
 
     void on_linear_box_stateChanged();
 
+    void on_saveChartPDF_clicked();
+
 private:
     Ui::MainWindow *ui;
     double loan_amount;

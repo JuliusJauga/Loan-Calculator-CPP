@@ -62,6 +62,11 @@ void MainWindow::on_linear_box_stateChanged()
     }
 }
 
+void MainWindow::on_saveChartPDF_clicked()
+{
+    printGraphAsPDF();
+}
+
 /**
  * @brief Retrieves data from the user interface and stores it in member variables.
  * 
@@ -169,18 +174,38 @@ void MainWindow::drawGraph(std::vector<MonthInfo> list) {
     axisY->setRange(0, biggestPayment + biggestPayment * 0.1);
 }
 
+/**
+ * @brief Saves the line graph to a PDF file
+ *
+ * @author Rokas Baliutavičius
+ */
+
 void MainWindow::printGraphAsPDF() {
     QPdfWriter writer("chart.pdf");
-    writer.setPageSize(QPageSize(QPageSize::A4));
+
+    // Replace with size in UI if changed
+    int graphWidth = 651;
+    int graphHeight = 381;
+
+    QSizeF customPageSizeMM(graphWidth, graphHeight);
+    qreal widthPoints = customPageSizeMM.width() * 72.0 / 25.4;
+    qreal heightPoints = customPageSizeMM.height() * 72.0 / 25.4;
+    QPageSize customPageSize(QSize(widthPoints, heightPoints), QPageSize::Point);
+    writer.setPageSize(customPageSize);
 
     QPainter painter(&writer);
 
     QSizeF size = chartView->size();
-    QPointF pos = chartView->pos();
 
-    chartView->render(&painter, QRectF(QPointF(0, 0), size), chartView->rect());
+    float widthScaleFactor = writer.width() / size.width();
+    float heightScaleFactor = writer.height() / size.height();
+    float scaleFactor = qMin(widthScaleFactor, heightScaleFactor);
+
+    size *= scaleFactor;
+    QPointF pos = chartView->pos() * scaleFactor;
+
+    chartView->render(&painter, QRectF(pos, size), chartView->rect());
 
     painter.end();
 }
-
 
