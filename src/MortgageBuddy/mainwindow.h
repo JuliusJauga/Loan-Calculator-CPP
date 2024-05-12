@@ -45,7 +45,6 @@ private:
     int getData();
     void createGraph();
     void fillView(std::vector<MonthInfo> list);
-    void getFilterData();
     void setFilterLimits(int years, int months);
     void drawGraph(std::vector<MonthInfo> list);
     void printGraphAsPDF();

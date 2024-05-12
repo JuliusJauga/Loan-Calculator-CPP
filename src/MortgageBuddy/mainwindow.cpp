@@ -25,6 +25,20 @@ MainWindow::MainWindow(QWidget *parent)
     headers << "Month" << "Monthly Payment" << "Interest Payment" << "Remaining Balance";
     ui->month_list->setHeaderLabels(headers);
 
+    connect(ui->startDateSlider, &QSlider::valueChanged, [this](int value) {
+        ui->filterStartLabel->setText(QString::number(value));
+        filter_start = value;
+        fillView(Calculations(loan_amount, annual_percent, years, months, delay_start, delay_end, is_annuit, is_linear).getList());
+        drawGraph(Calculations(loan_amount, annual_percent, years, months, delay_start, delay_end, is_annuit, is_linear).getList());
+    });
+
+    connect(ui->endDateSlider, &QSlider::valueChanged, [this](int value) {
+        ui->filterEndLabel->setText(QString::number(value));
+        filter_end = value;
+        fillView(Calculations(loan_amount, annual_percent, years, months, delay_start, delay_end, is_annuit, is_linear).getList());
+        drawGraph(Calculations(loan_amount, annual_percent, years, months, delay_start, delay_end, is_annuit, is_linear).getList());
+    });
+
 
     createGraph();
     
@@ -41,7 +55,7 @@ void MainWindow::on_calculate_button_clicked()
         return;
     }
     Calculations newCalculations(loan_amount, annual_percent, years, months, delay_start, delay_end, is_annuit, is_linear);
-    getFilterData();
+    // getFilterData();
     fillView(newCalculations.getList());
     drawGraph(newCalculations.getList());
 }
@@ -112,7 +126,7 @@ void MainWindow::fillView(std::vector<MonthInfo> list) {
     ui->month_list->isEnabled();
     ui->month_list->clear();
     for (size_t i = 0; i <= list.size() - 1; ++i) {
-        if (i < filter_start || i > filter_end) continue;
+        if (i+1 < filter_start || i+1 > filter_end) continue;
         QStringList rowData;
         rowData << QString::number(list[i].getMonth());       // Month
         rowData << QString::number(list[i].getMonthlyPayment(), 'f', 2);  // Monthly Payment
@@ -122,17 +136,7 @@ void MainWindow::fillView(std::vector<MonthInfo> list) {
     }
 }
 
-/**
- * @brief Retrieves the filter slider values and stores them in member variables.
- * 
- * @author Aurelijus Lukšas
-*/
 
-void MainWindow::getFilterData() {
-        filter_end = ui->endDateSlider->value();
-  
-        filter_start = ui->startDateSlider->value();
-}
 
 /**
  * @brief Sets the limits of the filter sliders.
@@ -141,10 +145,12 @@ void MainWindow::getFilterData() {
 */
 
 void MainWindow::setFilterLimits(int years, int months) {
-    ui->startDateSlider->setMinimum(0);
-    ui->startDateSlider->setMaximum(years * 12 + months - 1);
-    ui->endDateSlider->setMinimum(0);
-    ui->endDateSlider->setMaximum(years * 12 + months - 1);
+    ui->startDateSlider->setMinimum(1);
+    ui->startDateSlider->setMaximum(years * 12 + months);
+    ui->startDateSlider->setValue(1);
+    ui->endDateSlider->setMinimum(1);
+    ui->endDateSlider->setMaximum(years * 12 + months);
+    ui->endDateSlider->setValue(years * 12 + months);
 }
 
 /**
@@ -196,6 +202,7 @@ void MainWindow::drawGraph(std::vector<MonthInfo> list) {
 
     double biggestPayment = 0;
     for (size_t i = 0; i < list.size(); ++i) {
+        // if (i+1 < filter_start || i+1 > filter_end) continue;
         series->append(list[i].getMonth(), list[i].getMonthlyPayment());
         if (list[i].getMonthlyPayment() > biggestPayment) biggestPayment = list[i].getMonthlyPayment(); // Getting the biggest monthly payment for Y axis scale
     }
