@@ -24,7 +24,10 @@ MainWindow::MainWindow(QWidget *parent)
     QStringList headers;
     headers << "Month" << "Monthly Payment" << "Interest Payment" << "Remaining Balance";
     ui->month_list->setHeaderLabels(headers);
+
+
     createGraph();
+    
 }
 
 MainWindow::~MainWindow()
@@ -38,6 +41,7 @@ void MainWindow::on_calculate_button_clicked()
         return;
     }
     Calculations newCalculations(loan_amount, annual_percent, years, months, delay_start, delay_end, is_annuit, is_linear);
+    getFilterData();
     fillView(newCalculations.getList());
     drawGraph(newCalculations.getList());
 }
@@ -90,6 +94,7 @@ int MainWindow::getData() {
     if (!ok && !ok2) return ok;
     delay_start = ui->start_year_line->toPlainText().toInt() * 12 + ui->start_month_line->toPlainText().toInt();
     delay_end = ui->end_year_line->toPlainText().toInt() * 12 + ui->end_month_line->toPlainText().toInt();
+    setFilterLimits(years, months);
     return true;
 }
 /**
@@ -107,6 +112,7 @@ void MainWindow::fillView(std::vector<MonthInfo> list) {
     ui->month_list->isEnabled();
     ui->month_list->clear();
     for (size_t i = 0; i <= list.size() - 1; ++i) {
+        if (i < filter_start || i > filter_end) continue;
         QStringList rowData;
         rowData << QString::number(list[i].getMonth());       // Month
         rowData << QString::number(list[i].getMonthlyPayment(), 'f', 2);  // Monthly Payment
@@ -114,6 +120,31 @@ void MainWindow::fillView(std::vector<MonthInfo> list) {
         rowData << QString::number(list[i].getRemainingBalance(), 'f', 2);  // Remaining Balance
         ui->month_list->addTopLevelItem(new QTreeWidgetItem(rowData));
     }
+}
+
+/**
+ * @brief Retrieves the filter slider values and stores them in member variables.
+ * 
+ * @author Aurelijus Lukšas
+*/
+
+void MainWindow::getFilterData() {
+        filter_end = ui->endDateSlider->value();
+  
+        filter_start = ui->startDateSlider->value();
+}
+
+/**
+ * @brief Sets the limits of the filter sliders.
+ * 
+ * @author Aurelijus Lukšas
+*/
+
+void MainWindow::setFilterLimits(int years, int months) {
+    ui->startDateSlider->setMinimum(0);
+    ui->startDateSlider->setMaximum(years * 12 + months - 1);
+    ui->endDateSlider->setMinimum(0);
+    ui->endDateSlider->setMaximum(years * 12 + months - 1);
 }
 
 /**

@@ -38,11 +38,15 @@ private:
     int months;
     int delay_start;
     int delay_end;
+    int filter_start;
+    int filter_end;
     bool is_annuit;
     bool is_linear;
     int getData();
     void createGraph();
     void fillView(std::vector<MonthInfo> list);
+    void getFilterData();
+    void setFilterLimits(int years, int months);
     void drawGraph(std::vector<MonthInfo> list);
     void printGraphAsPDF();
 };
