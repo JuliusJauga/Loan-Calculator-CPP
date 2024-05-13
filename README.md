@@ -26,6 +26,10 @@ All of these components will work to build the application. The main application
 ![Diagram](res/activity.png)
 ## Technologies
 Qt library and tools for C++.
+## To-do
+- [ ] Abilit to export and import data to and from CSV files.
+- [ ] Ability to choose export and import file name.
+- [ ] Add design to the UI.
 ## Report
 The table below will contain information about the work and time spent on this project.
 | Julius Jauga | Aurelijus Lukšas | Rokas Baliutavičius |
