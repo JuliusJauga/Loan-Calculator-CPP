@@ -6,6 +6,7 @@
 #include <QChartView>
 #include <QLineSeries>
 #include "monthinfo.h"
+#include "calculations.h"
 #include <vector>
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -31,6 +32,9 @@ private slots:
     void on_saveChartPDF_clicked();
 
 private:
+    ListCreationStrategy* strategy; 
+    AnnuitListCreationStrategy* annuitStrategy;
+    LinearListCreationStrategy* linearStrategy;
     Ui::MainWindow *ui;
     double loan_amount;
     double annual_percent;

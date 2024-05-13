@@ -66,6 +66,9 @@ void MainWindow::on_annuit_box_stateChanged()
     if(ui->annuit_box->isChecked()) {
         is_linear = false;
         is_annuit = true;
+        // strategy = annuitStrategy;
+        // Calculations.setStrategy(strategy);
+
         ui->linear_box->setChecked(false);
     }
 }
@@ -76,6 +79,8 @@ void MainWindow::on_linear_box_stateChanged()
     if(ui->linear_box->isChecked()) {
         is_linear = true;
         is_annuit = false;
+        // strategy = linearStrategy;
+        // Calculations.setStrategy(strategy);
         ui->annuit_box->setChecked(false);
     }
 }
@@ -202,7 +207,7 @@ void MainWindow::drawGraph(std::vector<MonthInfo> list) {
 
     double biggestPayment = 0;
     for (size_t i = 0; i < list.size(); ++i) {
-        // if (i+1 < filter_start || i+1 > filter_end) continue;
+        if (i+1 < filter_start || i+1 > filter_end) continue;
         series->append(list[i].getMonth(), list[i].getMonthlyPayment());
         if (list[i].getMonthlyPayment() > biggestPayment) biggestPayment = list[i].getMonthlyPayment(); // Getting the biggest monthly payment for Y axis scale
     }

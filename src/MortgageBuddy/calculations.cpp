@@ -19,10 +19,16 @@ Calculations::Calculations(double loan_amount, double annual_percentage, int yea
     this->months = months;
     this->is_annuit = is_annuit;
     this->is_linear = is_linear;
+    this->strategy = strategy;
     delay_start = start;
     delay_end = end;
     createList();
 }
+
+void Calculations::setStrategy(ListCreationStrategy* newStrategy) {
+    strategy = newStrategy;
+}
+
 void Calculations::setLoanAmount(double loan_amount) {
     this->loan_amount = loan_amount;
 }
@@ -69,15 +75,26 @@ bool Calculations::getIsAnnuit() const {
 bool Calculations::getIsLinear() const {
     return is_linear;
 }
+
 std::vector<MonthInfo> Calculations::getList() const {
     return month_list;
 }
 void Calculations::recalculate() {
-    createList();
+    strategy->createList();
 }
+/**
+ * @brief This method selects strategy and calls method the creates a list of monthly payment information using the annuity or linear repayment method.
+ * 
+ * @authors Julius Jauga, Aurelijus Lukšas
+*/
 void Calculations::createList() {
-    if (is_annuit) createAnnuitList();
-    else createLinearList();
+    if (is_annuit) {
+        strategy = new AnnuitListCreationStrategy(this);
+    }
+    else if (is_linear) {
+        strategy = new LinearListCreationStrategy(this);
+    }
+    strategy->createList();
 }
 // This method creates a list of monthly payment information using the annuity repayment method. Probably needs testing and debugging.
 // 1. Crashes when total_months == 0;
@@ -165,5 +182,24 @@ void Calculations::createLinearList() {
         month_list.push_back(MonthInfo(month, monthly_payment, percent, std::abs(total_to_pay)));
     }
 }
+
+/**
+ * @brief This method creates a list of monthly payment information using the linear repayment method.
+ * 
+ * @author Aurelijus Lukšas
+ */
+void AnnuitListCreationStrategy::createList() {
+    calculations->createAnnuitList();
+}
+
+/**
+ * @brief This method creates a list of monthly payment information using the linear repayment method.
+ * 
+ * @author Aurelijus Lukšas
+ */
+void LinearListCreationStrategy::createList() {
+    calculations->createLinearList();
+}
+
 
 
