@@ -90,6 +90,17 @@ void MainWindow::on_saveChartPDF_clicked()
     printGraphAsPDF();
 }
 
+void MainWindow::on_exportToCSVButton_clicked()
+{
+    Calculations newCalculations(loan_amount, annual_percent, years, months, delay_start, delay_end, is_annuit, is_linear);
+    exportToCSV(newCalculations.getList());
+}
+
+void MainWindow::on_importFromCSVButton_clicked()
+{
+
+}
+
 /**
  * @brief Retrieves data from the user interface and stores it in member variables.
  * 
@@ -250,5 +261,28 @@ void MainWindow::printGraphAsPDF() {
     chartView->render(&painter, QRectF(pos, size), chartView->rect());
 
     painter.end();
+}
+
+void MainWindow::exportToCSV(std::vector<MonthInfo> list) {
+    QFile file("data.csv");
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        qDebug() << "Could not open file for writing:" << file.errorString();
+        return;
+    }
+
+    QTextStream out(&file);
+
+    // Write headers
+    out << "Month,Monthly Payment,Interest Payment,Remaining Balance\n";
+
+    // Write data
+    for (const MonthInfo &info : list) {
+        out << info.getMonth() << ","
+            << info.getMonthlyPayment() << ","
+            << info.getInterestPayment() << ","
+            << info.getRemainingBalance() << "\n";
+    }
+
+    file.close();
 }
 

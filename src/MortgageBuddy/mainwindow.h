@@ -21,6 +21,12 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void createGraph();
+    void fillView(std::vector<MonthInfo> list);
+    void setFilterLimits(int years, int months);
+    void drawGraph(std::vector<MonthInfo> list);
+    void printGraphAsPDF();
+    void exportToCSV(std::vector<MonthInfo> list);
 
 private slots:
     void on_calculate_button_clicked();
@@ -30,6 +36,10 @@ private slots:
     void on_linear_box_stateChanged();
 
     void on_saveChartPDF_clicked();
+
+    void on_exportToCSVButton_clicked();
+
+    void on_importFromCSVButton_clicked();
 
 private:
     ListCreationStrategy* strategy; 
@@ -47,10 +57,5 @@ private:
     bool is_annuit;
     bool is_linear;
     int getData();
-    void createGraph();
-    void fillView(std::vector<MonthInfo> list);
-    void setFilterLimits(int years, int months);
-    void drawGraph(std::vector<MonthInfo> list);
-    void printGraphAsPDF();
 };
 #endif // MAINWINDOW_H
