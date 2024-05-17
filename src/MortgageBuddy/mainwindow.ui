@@ -191,7 +191,7 @@
      <string>Postponement</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="loan_amount_line">
+   <widget class="custom_widgets" name="loan_amount_line">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -201,10 +201,10 @@
      </rect>
     </property>
     <property name="focusPolicy">
-     <enum>Qt::TabFocus</enum>
+     <enum>Qt::StrongFocus</enum>
     </property>
    </widget>
-   <widget class="QTextEdit" name="annual_percent_line">
+   <widget class="custom_widgets" name="annual_percent_line">
     <property name="geometry">
      <rect>
       <x>360</x>
@@ -214,10 +214,10 @@
      </rect>
     </property>
     <property name="focusPolicy">
-     <enum>Qt::TabFocus</enum>
+     <enum>Qt::StrongFocus</enum>
     </property>
    </widget>
-   <widget class="QTextEdit" name="year_line">
+   <widget class="custom_widgets" name="year_line">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -227,10 +227,10 @@
      </rect>
     </property>
     <property name="focusPolicy">
-     <enum>Qt::TabFocus</enum>
+     <enum>Qt::StrongFocus</enum>
     </property>
    </widget>
-   <widget class="QTextEdit" name="month_line">
+   <widget class="custom_widgets" name="month_line">
     <property name="geometry">
      <rect>
       <x>360</x>
@@ -240,10 +240,10 @@
      </rect>
     </property>
     <property name="focusPolicy">
-     <enum>Qt::TabFocus</enum>
+     <enum>Qt::StrongFocus</enum>
     </property>
    </widget>
-   <widget class="QTextEdit" name="start_year_line">
+   <widget class="custom_widgets" name="start_year_line">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -253,7 +253,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QTextEdit" name="start_month_line">
+   <widget class="custom_widgets" name="start_month_line">
     <property name="geometry">
      <rect>
       <x>360</x>
@@ -263,7 +263,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QTextEdit" name="end_year_line">
+   <widget class="custom_widgets" name="end_year_line">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -273,7 +273,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QTextEdit" name="end_month_line">
+   <widget class="custom_widgets" name="end_month_line">
     <property name="geometry">
      <rect>
       <x>360</x>
@@ -505,6 +505,13 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>custom_widgets</class>
+   <extends>QTextEdit</extends>
+   <header>custom_widgets.h</header>
+  </customwidget>
+ </customwidgets>
  <tabstops>
   <tabstop>loan_amount_line</tabstop>
   <tabstop>annual_percent_line</tabstop>

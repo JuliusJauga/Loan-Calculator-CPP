@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "customQTextEdit.h"
 #include <QTreeWidget>
 #include <QTreeWidgetItem>
 // #include <QFileDialog>

@@ -13,12 +13,14 @@ CONFIG += c++17
 
 SOURCES += \
     calculations.cpp \
+    customQTextEdit.cpp \
     main.cpp \
     mainwindow.cpp \
     monthinfo.cpp
 
 HEADERS += \
     calculations.h \
+    customQTextEdit.h \
     mainwindow.h \
     monthinfo.h
 
