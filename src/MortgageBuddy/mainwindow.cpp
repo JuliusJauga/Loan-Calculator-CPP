@@ -6,6 +6,9 @@
 // #include <QFileDialog>
 #include <QPdfWriter>
 #include <QPainter>
+#include <QBrush>
+#include <QFont>
+#include <QColor>
 #include "calculations.h"
 
 QLineSeries *series;
@@ -26,6 +29,12 @@ MainWindow::MainWindow(QWidget *parent)
     headers << "Month" << "Monthly Payment" << "Interest Payment" << "Remaining Balance";
     ui->month_list->setHeaderLabels(headers);
 
+    // Manually set the width for each column
+    ui->month_list->setColumnWidth(0, 75); // Set width of column 0 to 100 pixels
+    ui->month_list->setColumnWidth(1, 170); // Set width of column 1 to 200 pixels
+    ui->month_list->setColumnWidth(2, 170); // Set width of column 2 to 200 pixels
+    ui->month_list->setColumnWidth(3, 170); // Set width of column 3 to 200 pixels
+
     connect(ui->startDateSlider, &QSlider::valueChanged, [this](int value) {
         ui->filterStartLabel->setText(QString::number(value));
         filter_start = value;
@@ -40,9 +49,9 @@ MainWindow::MainWindow(QWidget *parent)
         drawGraph(Calculations(loan_amount, annual_percent, years, months, delay_start, delay_end, is_annuit, is_linear).getList());
     });
 
+    ui->month_list->header()->setDefaultAlignment(Qt::AlignCenter);
 
     createGraph();
-    
 }
 
 MainWindow::~MainWindow()
@@ -151,6 +160,14 @@ void MainWindow::fillView(std::vector<MonthInfo> list) {
         rowData << QString::number(list[i].getRemainingBalance(), 'f', 2);  // Remaining Balance
         ui->month_list->addTopLevelItem(new QTreeWidgetItem(rowData));
     }
+
+    for(int i = 0; i < ui->month_list->topLevelItemCount(); ++i) {
+        QTreeWidgetItem *item = ui->month_list->topLevelItem(i);
+        for(int j = 0; j < item->columnCount(); ++j) {
+            item->setTextAlignment(j, Qt::AlignCenter);
+        }
+    }
+
 }
 
 
@@ -193,6 +210,24 @@ void MainWindow::createGraph() {
     // Attach the series to the axes
     series->attachAxis(axisX);
     series->attachAxis(axisY);
+    series->setColor(QColor("#7b9d85"));
+
+    QColor chartBackgroundColor("#282a33");
+    chart->setBackgroundBrush(QBrush(chartBackgroundColor));
+
+    // Set the background color of the QChartView to be transparent
+    chartView->setStyleSheet("background-color: transparent;");
+
+    // Set the background color and border of the chartWidget
+    ui->chartWidget->setStyleSheet("background-color: #282a33; border: 2px solid; border-color: #7b9d85; border-radius: 4px");
+
+    QFont font;
+    font.setBold(true);
+    axisX->setTitleFont(font);
+    axisX->setTitleBrush(QBrush(Qt::white));
+
+    axisY->setTitleFont(font);
+    axisY->setTitleBrush(QBrush(Qt::white));
 
     axisX->setTitleText("Month");           // X axis title
     axisY->setTitleText("Monthly Payment"); // Y axis title
@@ -200,9 +235,14 @@ void MainWindow::createGraph() {
     axisX->setLabelFormat("%.0f");          // Format month numeration
     axisY->setLabelFormat("%.2f");          // Format currency numeration
 
+    // Set the color of the X axis labels to white
+    axisX->setLabelsColor(Qt::white);
+
+    // Set the color of the Y axis labels to white
+    axisY->setLabelsColor(Qt::white);
+
     chart->legend()->hide();
 }
-
 /**
  * @brief Re-draws the line graph with calculated data.
  *

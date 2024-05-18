@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="dataLabel">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -27,7 +27,7 @@
      <string>Loan amount</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="dataLabel_2">
     <property name="geometry">
      <rect>
       <x>360</x>
@@ -59,7 +59,7 @@
       <x>360</x>
       <y>410</y>
       <width>260</width>
-      <height>40</height>
+      <height>50</height>
      </rect>
     </property>
     <property name="text">
@@ -117,8 +117,8 @@
       <height>361</height>
      </rect>
     </property>
-    <attribute name="headerVisible">
-     <bool>true</bool>
+    <attribute name="headerDefaultSectionSize">
+     <number>100</number>
     </attribute>
     <column>
      <property name="text">
@@ -188,10 +188,10 @@
      </rect>
     </property>
     <property name="text">
-     <string>Postponement</string>
+     <string>Postponement:</string>
     </property>
    </widget>
-   <widget class="custom_widgets" name="loan_amount_line">
+   <widget class="CustomQTextEdit" name="loan_amount_line">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -204,7 +204,7 @@
      <enum>Qt::StrongFocus</enum>
     </property>
    </widget>
-   <widget class="custom_widgets" name="annual_percent_line">
+   <widget class="CustomQTextEdit" name="annual_percent_line">
     <property name="geometry">
      <rect>
       <x>360</x>
@@ -217,7 +217,7 @@
      <enum>Qt::StrongFocus</enum>
     </property>
    </widget>
-   <widget class="custom_widgets" name="year_line">
+   <widget class="CustomQTextEdit" name="year_line">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -230,7 +230,7 @@
      <enum>Qt::StrongFocus</enum>
     </property>
    </widget>
-   <widget class="custom_widgets" name="month_line">
+   <widget class="CustomQTextEdit" name="month_line">
     <property name="geometry">
      <rect>
       <x>360</x>
@@ -243,7 +243,7 @@
      <enum>Qt::StrongFocus</enum>
     </property>
    </widget>
-   <widget class="custom_widgets" name="start_year_line">
+   <widget class="CustomQTextEdit" name="start_year_line">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -253,7 +253,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="custom_widgets" name="start_month_line">
+   <widget class="CustomQTextEdit" name="start_month_line">
     <property name="geometry">
      <rect>
       <x>360</x>
@@ -263,7 +263,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="custom_widgets" name="end_year_line">
+   <widget class="CustomQTextEdit" name="end_year_line">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -273,7 +273,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="custom_widgets" name="end_month_line">
+   <widget class="CustomQTextEdit" name="end_month_line">
     <property name="geometry">
      <rect>
       <x>360</x>
@@ -311,22 +311,26 @@
     <widget class="QWidget" name="verticalLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>-1</x>
-       <y>-1</y>
-       <width>611</width>
-       <height>381</height>
+       <x>0</x>
+       <y>0</y>
+       <width>610</width>
+       <height>370</height>
       </rect>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout"/>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetDefaultConstraint</enum>
+      </property>
+     </layout>
     </widget>
    </widget>
    <widget class="QPushButton" name="saveChartPDF">
     <property name="geometry">
      <rect>
-      <x>830</x>
-      <y>740</y>
-      <width>181</width>
-      <height>29</height>
+      <x>50</x>
+      <y>440</y>
+      <width>260</width>
+      <height>40</height>
      </rect>
     </property>
     <property name="text">
@@ -392,7 +396,7 @@
     <property name="geometry">
      <rect>
       <x>190</x>
-      <y>410</y>
+      <y>390</y>
       <width>120</width>
       <height>40</height>
      </rect>
@@ -405,7 +409,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>410</y>
+      <y>390</y>
       <width>120</width>
       <height>40</height>
      </rect>
@@ -414,11 +418,11 @@
      <string>export CSV</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_15">
+   <widget class="QLabel" name="titleText">
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>0</y>
+      <y>20</y>
       <width>431</width>
       <height>41</height>
      </rect>
@@ -445,12 +449,12 @@
      <rect>
       <x>360</x>
       <y>320</y>
-      <width>63</width>
+      <width>91</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>Start:</string>
+     <string>Start month:</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_5">
@@ -458,12 +462,12 @@
      <rect>
       <x>500</x>
       <y>320</y>
-      <width>63</width>
+      <width>81</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>End:</string>
+     <string>End month:</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_3">
@@ -477,19 +481,6 @@
     </property>
     <property name="text">
      <string>PushButton</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_16">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>50</y>
-      <width>130</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Data</string>
     </property>
    </widget>
   </widget>
@@ -507,9 +498,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>custom_widgets</class>
+   <class>CustomQTextEdit</class>
    <extends>QTextEdit</extends>
-   <header>custom_widgets.h</header>
+   <header>customqtextedit.h</header>
   </customwidget>
  </customwidgets>
  <tabstops>

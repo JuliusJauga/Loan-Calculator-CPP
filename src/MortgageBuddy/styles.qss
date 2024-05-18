@@ -1,0 +1,100 @@
+/* Main background */
+QMainWindow {
+    /* background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #22232a, stop:1 #2b3c50); */
+    background-color: #22232a;
+}
+
+/* Labels for data entry */
+QLabel {
+    color: white;
+    font-family: "Arial";
+    font-size: 14px;
+}
+
+/* Mortgage Buddy text */
+QLabel#titleText {
+    /* color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:0, stop:0 #f38376, stop:1 #ba5f94); */
+    color: white;
+    font-family: "Arial";
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* Text fields */
+CustomQTextEdit {
+    font-size: 12px;
+    padding-top: 7px;
+    background-color: transparent;
+    border: 2px solid;
+    border-radius: 6px;
+    border-color: #7b9d85;
+}
+
+CustomQTextEdit:focus {
+    border-color: #c4dccc;
+}
+
+/* Buttons */
+
+QPushButton {
+    font-size: 12px;
+    color: white;
+    background-color: transparent;
+    border: 2px solid;
+    border-radius: 6px;
+    border-color: #7b9d85;
+}
+
+QPushButton:focus {
+    border-color: #c4dccc;
+}
+
+QPushButton:hover {
+    background-color: #7b9d85;
+}
+
+/* Checkboxes */
+QCheckBox {
+    color: white;
+    font-family: "Arial";
+    font-size: 12px;
+}
+
+QCheckBox:indicator {
+    border-radius: 6px;
+    border: 1px solid;
+    border-color: white;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #7b9d85;
+    border: 1px solid #7b9d85;
+}
+
+/* Table */
+
+QTreeWidget {
+    color: white;
+    font-family: "Arial";
+    font-size: 12px;
+    background-color: transparent;
+    border: 2px solid;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    padding-top: -1px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    border-color: #7b9d85;
+}
+
+QHeaderView::section {
+    background-color: #7b9d85; /* Change to your desired color */
+    color: white; /* Change to your desired color */
+    border: 0px;
+    margin-top: -1px;
+    padding: 0px;
+    border-radius: 0px;
+}    
+
+/* Graph */
