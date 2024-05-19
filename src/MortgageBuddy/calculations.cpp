@@ -22,6 +22,7 @@ Calculations::Calculations(double loan_amount, double annual_percentage, int yea
     this->strategy = strategy;
     delay_start = start;
     delay_end = end;
+
     createList();
 }
 
