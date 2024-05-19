@@ -117,9 +117,9 @@ void MainWindow::on_importFromCSVButton_clicked()
 
 /**
  * @brief Retrieves data from the user interface and stores it in member variables.
- * 
+ *
  * @return true if the data retrieval is successful, false otherwise.
- * 
+ *
  * @author Julius Jauga
  */
 int MainWindow::getData() {
@@ -143,11 +143,11 @@ int MainWindow::getData() {
 }
 /**
  * @brief Fills the view with data from a vector of MonthInfo objects.
- * 
+ *
  * This method clears the month_list widget and populates it with data from the provided vector.
  * Each MonthInfo object in the vector represents a month's worth of information for a loan payment.
  * The data includes the month number, monthly payment, interest payment, and remaining balance.
- * 
+ *
  * @param list The vector of MonthInfo objects containing the loan payment information.
  *
  * @author Julius Jauga
@@ -178,7 +178,7 @@ void MainWindow::fillView(std::vector<MonthInfo> list) {
 
 /**
  * @brief Sets the limits of the filter sliders.
- * 
+ *
  * @author Aurelijus Lukšas
 */
 
