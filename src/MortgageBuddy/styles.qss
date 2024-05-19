@@ -100,7 +100,6 @@ QHeaderView::section {
     border-radius: 0px;
 }    
 
-
 /* QTabWidget */
 
 QTabWidget {
@@ -120,11 +119,13 @@ QTabWidget::pane {
 }
 
 /* QTabBar */
+
 QTabBar::tab {
     background: transparent;
+    color: white;
     border: 2px solid #7b9d85;
     border-radius: 6px;
-    min-width: 80px;
+    min-width: 120px;
     margin-right: 10px;
 }
 

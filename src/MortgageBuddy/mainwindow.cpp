@@ -32,6 +32,8 @@ MainWindow::MainWindow(QWidget *parent)
     QStringList headers;
     headers << "Month" << "Monthly Payment" << "Interest Payment" << "Remaining Balance";
     ui->month_list->setHeaderLabels(headers);
+    ui->startDateSlider->setMaximum(0);
+    ui->endDateSlider->setMaximum(0);
     ui->paid_month_list->setHeaderLabels(headers);
     // Manually set the width for each column
     ui->month_list->setColumnWidth(0, 75); // Set width of column 0 to 100 pixels
@@ -46,15 +48,15 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->startDateSlider, &QSlider::valueChanged, [this](int value) {
         ui->filterStartLabel->setText(QString::number(value));
         filter_start = value;
-        fillView(Calculations(loan_amount, annual_percent, years, months, delay_start, delay_end, is_annuit, is_linear).getList());
-        drawGraph(Calculations(loan_amount, annual_percent, years, months, delay_start, delay_end, is_annuit, is_linear).getList());
+
+        filterData();
     });
 
     connect(ui->endDateSlider, &QSlider::valueChanged, [this](int value) {
         ui->filterEndLabel->setText(QString::number(value));
         filter_end = value;
-        fillView(Calculations(loan_amount, annual_percent, years, months, delay_start, delay_end, is_annuit, is_linear).getList());
-        drawGraph(Calculations(loan_amount, annual_percent, years, months, delay_start, delay_end, is_annuit, is_linear).getList());
+        
+        filterData();
     });
 
     ui->month_list->header()->setDefaultAlignment(Qt::AlignCenter);
@@ -91,6 +93,7 @@ void MainWindow::on_calculate_button_clicked()
     }
     Calculations newCalculations(loan_amount, annual_percent, years, months, delay_start, delay_end, is_annuit, is_linear);
     // getFilterData();
+    setFilterLimits(years, months);
     fillView(newCalculations.getList());
     drawGraph(newCalculations.getList());
     //ui->endDateSlider->setVisible(true);
@@ -136,6 +139,14 @@ void MainWindow::on_importFromCSVButton_clicked()
 {
 
 }
+void MainWindow::filterData() {
+
+    if (!getData() || (is_annuit == false && is_linear == false)) {
+        return;
+    }
+    fillView(Calculations(loan_amount, annual_percent, years, months, delay_start, delay_end, is_annuit, is_linear).getList());
+    drawGraph(Calculations(loan_amount, annual_percent, years, months, delay_start, delay_end, is_annuit, is_linear).getList());
+}
 
 /**
  * @brief Retrieves data from the user interface and stores it in member variables.
@@ -153,14 +164,17 @@ int MainWindow::getData() {
     bool ok2 = 1;
     loan_amount = ui->loan_amount_line->toPlainText().toDouble(&ok);
     if (!ok) return ok;
+    
     annual_percent = ui->annual_percent_line->toPlainText().toDouble(&ok);
     if (!ok) return ok;
+    
     years = ui->year_line->toPlainText().toInt(&ok);
     months = ui->month_line->toPlainText().toInt(&ok2);
     if (!ok && !ok2) return ok;
+    
     delay_start = ui->start_year_line->toPlainText().toInt() * 12 + ui->start_month_line->toPlainText().toInt();
     delay_end = ui->end_year_line->toPlainText().toInt() * 12 + ui->end_month_line->toPlainText().toInt();
-    setFilterLimits(years, months);
+    
     return true;
 }
 /**

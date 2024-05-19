@@ -27,6 +27,7 @@ public:
     void drawGraph(std::vector<MonthInfo> list);
     void printGraphAsPDF();
     void exportToCSV(std::vector<MonthInfo> list);
+    void filterData();
 
 private slots:
     void on_calculate_button_clicked();
