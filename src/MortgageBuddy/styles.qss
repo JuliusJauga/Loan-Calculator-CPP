@@ -7,15 +7,16 @@ QMainWindow {
 /* Labels for data entry */
 QLabel {
     color: white;
-    font-family: "Arial";
-    font-size: 14px;
+    font-family: "Poppins";
+    font-weight: light;
+    font-size: 13px;
 }
 
 /* Mortgage Buddy text */
 QLabel#titleText {
     /* color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:0, stop:0 #f38376, stop:1 #ba5f94); */
     color: white;
-    font-family: "Arial";
+    font-family: "Poppins";
     font-size: 32px;
     font-weight: bold;
 }
@@ -56,7 +57,7 @@ QPushButton:hover {
 /* Checkboxes */
 QCheckBox {
     color: white;
-    font-family: "Arial";
+    font-family: "Poppins";
     font-size: 12px;
 }
 
@@ -75,15 +76,15 @@ QCheckBox::indicator:checked {
 
 QTreeWidget {
     color: white;
-    font-family: "Arial";
+    font-family: "Poppins";
     font-size: 12px;
     background-color: transparent;
     border: 2px solid;
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
     padding-top: -1px;
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: -1px;
+    padding-right: -1px;
     padding-bottom: 0px;
     border-color: #7b9d85;
 }
@@ -97,4 +98,64 @@ QHeaderView::section {
     border-radius: 0px;
 }    
 
-/* Graph */
+QTreeWidget QScrollBar {
+    width: 0px; /* Hide the scrollbar */
+    background: transparent;
+}
+
+QTreeWidget QScrollBar::handle {
+    background: transparent;
+}
+
+QTreeWidget QScrollBar::handle:hover {
+    background: transparent;
+}
+
+
+/* Sliders */
+
+    QSlider::groove:horizontal {
+        border: 1px solid red;
+        background: white;
+        height: 10px;
+        border-radius: 4px;
+    }
+    
+    QSlider::sub-page:horizontal {
+        background-color: #7b9d85;
+        border: 1px solid #777;
+        height: 10px;
+        border-radius: 4px;
+    }
+    
+    QSlider::add-page:horizontal {
+        background: #fff;
+        border: 1px solid #777;
+        height: 10px;
+        border-radius: 4px;
+    }
+    
+    QSlider::handle:horizontal {
+        background-color: #fff;
+        border: 1px solid #c4dccc;
+        width: 13px;
+        margin-top: -2px;
+        margin-bottom: -2px;
+        border-radius: 4px;
+    }
+    
+    QSlider::sub-page:horizontal:disabled {
+        background: #bbb;
+        border-color: #999;
+    }
+    
+    QSlider::add-page:horizontal:disabled {
+        background: #eee;
+        border-color: #999;
+    }
+    
+    QSlider::handle:horizontal:disabled {
+        background: #eee;
+        border: 1px solid #aaa;
+        border-radius: 4px;
+    }

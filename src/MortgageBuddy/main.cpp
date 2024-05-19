@@ -5,8 +5,27 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    // Print current working directory
-    // Use absolute path for testing
+
+    QStringList fontFiles = {
+        ":/fonts/fonts/Roboto-Bold.ttf",
+        ":/fonts/fonts/Roboto-Light.ttf",
+        ":/fonts/fonts/Roboto-Regular.ttf",
+        ":/fonts/fonts/Poppins-Black.ttf",
+        ":/fonts/fonts/Poppins-Bold.ttf",
+        ":/fonts/fonts/Poppins-Light.ttf",
+        ":/fonts/fonts/Poppins-Medium.ttf",
+        ":/fonts/fonts/Poppins-Regular.ttf",
+        ":/fonts/fonts/Inter-VariableFont.ttf"
+    };
+
+    for (const QString &fontFile : fontFiles) {
+        int fontId = QFontDatabase::addApplicationFont(fontFile);
+        if (fontId == -1) {
+            qWarning() << "Failed to load font:" << fontFile;
+        }
+    }
+
+
     QFile file(":/styles/styles.qss");
     if (file.open(QFile::ReadOnly | QFile::Text)) {
         QString stylesheet = file.readAll();
@@ -15,6 +34,7 @@ int main(int argc, char *argv[])
     } else {
         qWarning() << "Could not open stylesheet file";
     }
+
     MainWindow w;
     w.show();
     return a.exec();

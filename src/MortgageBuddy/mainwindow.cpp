@@ -211,15 +211,18 @@ void MainWindow::createGraph() {
     series->attachAxis(axisX);
     series->attachAxis(axisY);
     series->setColor(QColor("#7b9d85"));
+    QPen pen(QColor("#7b9d85"));
+    pen.setWidth(3);
+    series->setPen(pen);
 
-    QColor chartBackgroundColor("#282a33");
+    QColor chartBackgroundColor("#22232a");
     chart->setBackgroundBrush(QBrush(chartBackgroundColor));
 
     // Set the background color of the QChartView to be transparent
     chartView->setStyleSheet("background-color: transparent;");
 
     // Set the background color and border of the chartWidget
-    ui->chartWidget->setStyleSheet("background-color: #282a33; border: 2px solid; border-color: #7b9d85; border-radius: 4px");
+    ui->chartWidget->setStyleSheet("background-color: #22232a; border: 2px solid; border-color: #7b9d85; border-radius: 6px");
 
     QFont font;
     font.setBold(true);
@@ -243,6 +246,7 @@ void MainWindow::createGraph() {
 
     chart->legend()->hide();
 }
+
 /**
  * @brief Re-draws the line graph with calculated data.
  *

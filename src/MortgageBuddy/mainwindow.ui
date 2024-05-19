@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1692</width>
+    <width>1500</width>
     <height>845</height>
    </rect>
   </property>
@@ -18,9 +18,9 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>80</y>
+      <y>70</y>
       <width>91</width>
-      <height>20</height>
+      <height>30</height>
      </rect>
     </property>
     <property name="text">
@@ -31,9 +31,9 @@
     <property name="geometry">
      <rect>
       <x>360</x>
-      <y>80</y>
+      <y>70</y>
       <width>101</width>
-      <height>20</height>
+      <height>30</height>
      </rect>
     </property>
     <property name="text">
@@ -44,9 +44,9 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>190</y>
+      <y>180</y>
       <width>121</width>
-      <height>20</height>
+      <height>30</height>
      </rect>
     </property>
     <property name="text">
@@ -82,7 +82,7 @@
    <widget class="QCheckBox" name="linear_box">
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>190</x>
       <y>330</y>
       <width>130</width>
       <height>41</height>
@@ -96,9 +96,9 @@
     <property name="geometry">
      <rect>
       <x>360</x>
-      <y>190</y>
+      <y>180</y>
       <width>171</width>
-      <height>20</height>
+      <height>30</height>
      </rect>
     </property>
     <property name="text">
@@ -111,10 +111,10 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>1030</x>
-      <y>20</y>
-      <width>611</width>
-      <height>361</height>
+      <x>780</x>
+      <y>40</y>
+      <width>671</width>
+      <height>340</height>
      </rect>
     </property>
     <attribute name="headerDefaultSectionSize">
@@ -130,9 +130,9 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>580</y>
+      <y>570</y>
       <width>91</width>
-      <height>20</height>
+      <height>30</height>
      </rect>
     </property>
     <property name="text">
@@ -143,9 +143,9 @@
     <property name="geometry">
      <rect>
       <x>360</x>
-      <y>580</y>
+      <y>570</y>
       <width>91</width>
-      <height>20</height>
+      <height>30</height>
      </rect>
     </property>
     <property name="text">
@@ -156,9 +156,9 @@
     <property name="geometry">
      <rect>
       <x>360</x>
-      <y>690</y>
+      <y>680</y>
       <width>91</width>
-      <height>20</height>
+      <height>30</height>
      </rect>
     </property>
     <property name="text">
@@ -169,9 +169,9 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>690</y>
+      <y>680</y>
       <width>91</width>
-      <height>20</height>
+      <height>30</height>
      </rect>
     </property>
     <property name="text">
@@ -182,9 +182,9 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>540</y>
+      <y>530</y>
       <width>130</width>
-      <height>20</height>
+      <height>30</height>
      </rect>
     </property>
     <property name="text">
@@ -289,7 +289,7 @@
       <x>50</x>
       <y>300</y>
       <width>171</width>
-      <height>20</height>
+      <height>30</height>
      </rect>
     </property>
     <property name="text">
@@ -302,10 +302,10 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>1030</x>
+      <x>780</x>
       <y>400</y>
-      <width>611</width>
-      <height>371</height>
+      <width>671</width>
+      <height>361</height>
      </rect>
     </property>
     <widget class="QWidget" name="verticalLayoutWidget">
@@ -313,8 +313,8 @@
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>610</width>
-       <height>370</height>
+       <width>670</width>
+       <height>360</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
@@ -334,16 +334,16 @@
      </rect>
     </property>
     <property name="text">
-     <string>save chart as pdf</string>
+     <string>Save chart as PDF</string>
     </property>
    </widget>
    <widget class="QSlider" name="startDateSlider">
     <property name="geometry">
      <rect>
       <x>360</x>
-      <y>350</y>
+      <y>340</y>
       <width>120</width>
-      <height>18</height>
+      <height>20</height>
      </rect>
     </property>
     <property name="orientation">
@@ -353,10 +353,10 @@
    <widget class="QSlider" name="endDateSlider">
     <property name="geometry">
      <rect>
-      <x>500</x>
-      <y>350</y>
+      <x>490</x>
+      <y>340</y>
       <width>120</width>
-      <height>18</height>
+      <height>20</height>
      </rect>
     </property>
     <property name="orientation">
@@ -367,29 +367,29 @@
     <property name="geometry">
      <rect>
       <x>450</x>
-      <y>320</y>
-      <width>30</width>
-      <height>20</height>
+      <y>300</y>
+      <width>40</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="layoutDirection">
      <enum>Qt::RightToLeft</enum>
     </property>
     <property name="text">
-     <string>start</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="filterEndLabel">
     <property name="geometry">
      <rect>
       <x>590</x>
-      <y>320</y>
-      <width>30</width>
-      <height>20</height>
+      <y>300</y>
+      <width>40</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="text">
-     <string>end</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="importFromCSVButton">
@@ -402,7 +402,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>import CSV</string>
+     <string>Import data</string>
     </property>
    </widget>
    <widget class="QPushButton" name="exportToCSVButton">
@@ -415,7 +415,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>export CSV</string>
+     <string>Export data</string>
     </property>
    </widget>
    <widget class="QLabel" name="titleText">
@@ -428,29 +428,16 @@
      </rect>
     </property>
     <property name="text">
-     <string>MORTGAGE BUDDY</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_2">
-    <property name="geometry">
-     <rect>
-      <x>810</x>
-      <y>370</y>
-      <width>130</width>
-      <height>70</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
+     <string>Mortgage Buddy</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
       <x>360</x>
-      <y>320</y>
+      <y>300</y>
       <width>91</width>
-      <height>20</height>
+      <height>30</height>
      </rect>
     </property>
     <property name="text">
@@ -460,27 +447,14 @@
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>500</x>
-      <y>320</y>
+      <x>490</x>
+      <y>300</y>
       <width>81</width>
-      <height>20</height>
+      <height>30</height>
      </rect>
     </property>
     <property name="text">
      <string>End month:</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_3">
-    <property name="geometry">
-     <rect>
-      <x>680</x>
-      <y>370</y>
-      <width>130</width>
-      <height>40</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
     </property>
    </widget>
   </widget>
@@ -489,7 +463,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1692</width>
+     <width>1500</width>
      <height>25</height>
     </rect>
    </property>
@@ -521,8 +495,6 @@
   <tabstop>startDateSlider</tabstop>
   <tabstop>endDateSlider</tabstop>
   <tabstop>month_list</tabstop>
-  <tabstop>pushButton_2</tabstop>
-  <tabstop>pushButton_3</tabstop>
  </tabstops>
  <resources/>
  <connections/>
