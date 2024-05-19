@@ -13,12 +13,14 @@ CONFIG += c++17
 
 SOURCES += \
     calculations.cpp \
+    customQTextEdit.cpp \
     main.cpp \
     mainwindow.cpp \
     monthinfo.cpp
 
 HEADERS += \
     calculations.h \
+    customQTextEdit.h \
     mainwindow.h \
     monthinfo.h
 
@@ -29,3 +31,9 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    styles.qss
+
+RESOURCES += \
+    resources.qrc

@@ -6,73 +6,60 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1395</width>
-    <height>697</height>
+    <width>1500</width>
+    <height>820</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="dataLabel">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>10</y>
+      <x>50</x>
+      <y>70</y>
       <width>91</width>
-      <height>20</height>
+      <height>30</height>
      </rect>
     </property>
     <property name="text">
      <string>Loan amount</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="dataLabel_2">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>10</y>
+      <x>360</x>
+      <y>70</y>
       <width>101</width>
-      <height>20</height>
+      <height>30</height>
      </rect>
     </property>
     <property name="text">
-     <string>Annual percent</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>90</y>
-      <width>91</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Loan term:</string>
+     <string>Interest rate</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>110</y>
-      <width>91</width>
-      <height>20</height>
+      <x>50</x>
+      <y>180</y>
+      <width>121</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="text">
-     <string>Years</string>
+     <string>Loan tem years</string>
     </property>
    </widget>
    <widget class="QPushButton" name="calculate_button">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>130</y>
-      <width>93</width>
-      <height>29</height>
+      <x>360</x>
+      <y>410</y>
+      <width>260</width>
+      <height>50</height>
      </rect>
     </property>
     <property name="text">
@@ -82,53 +69,40 @@
    <widget class="QCheckBox" name="annuit_box">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>30</y>
-      <width>91</width>
-      <height>24</height>
+      <x>50</x>
+      <y>330</y>
+      <width>130</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string>Annuit</string>
+     <string>Annuity</string>
     </property>
    </widget>
    <widget class="QCheckBox" name="linear_box">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>60</y>
-      <width>91</width>
-      <height>24</height>
+      <x>190</x>
+      <y>330</y>
+      <width>130</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
      <string>Linear</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>70</y>
-      <width>63</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Schedule</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>110</y>
-      <width>91</width>
-      <height>20</height>
+      <x>360</x>
+      <y>180</y>
+      <width>171</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="text">
-     <string>Months</string>
+     <string>Loan term months</string>
     </property>
    </widget>
    <widget class="QTreeWidget" name="month_list">
@@ -137,14 +111,14 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>250</y>
-      <width>611</width>
-      <height>391</height>
+      <x>780</x>
+      <y>40</y>
+      <width>671</width>
+      <height>340</height>
      </rect>
     </property>
-    <attribute name="headerVisible">
-     <bool>true</bool>
+    <attribute name="headerDefaultSectionSize">
+     <number>100</number>
     </attribute>
     <column>
      <property name="text">
@@ -155,181 +129,167 @@
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>1130</x>
-      <y>70</y>
+      <x>50</x>
+      <y>570</y>
       <width>91</width>
-      <height>20</height>
+      <height>30</height>
      </rect>
     </property>
     <property name="text">
-     <string>Years</string>
+     <string>Start year</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
-      <x>1260</x>
-      <y>70</y>
+      <x>360</x>
+      <y>570</y>
       <width>91</width>
-      <height>20</height>
+      <height>30</height>
      </rect>
     </property>
     <property name="text">
-     <string>Months</string>
+     <string>Start month</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_9">
     <property name="geometry">
      <rect>
-      <x>1260</x>
-      <y>130</y>
+      <x>360</x>
+      <y>680</y>
       <width>91</width>
-      <height>20</height>
+      <height>30</height>
      </rect>
     </property>
     <property name="text">
-     <string>Months</string>
+     <string>End month</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_10">
     <property name="geometry">
      <rect>
-      <x>1130</x>
-      <y>130</y>
+      <x>50</x>
+      <y>680</y>
       <width>91</width>
-      <height>20</height>
+      <height>30</height>
      </rect>
     </property>
     <property name="text">
-     <string>Years</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_11">
-    <property name="geometry">
-     <rect>
-      <x>1050</x>
-      <y>100</y>
-      <width>63</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Start</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_12">
-    <property name="geometry">
-     <rect>
-      <x>1050</x>
-      <y>160</y>
-      <width>63</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>End</string>
+     <string>End year</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_13">
     <property name="geometry">
      <rect>
-      <x>1190</x>
-      <y>30</y>
-      <width>141</width>
-      <height>20</height>
+      <x>50</x>
+      <y>530</y>
+      <width>130</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="text">
-     <string>Postponement</string>
+     <string>Postponement:</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="loan_amount_line">
+   <widget class="CustomQTextEdit" name="loan_amount_line">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>40</y>
-      <width>104</width>
-      <height>21</height>
+      <x>50</x>
+      <y>110</y>
+      <width>261</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::StrongFocus</enum>
+    </property>
+   </widget>
+   <widget class="CustomQTextEdit" name="annual_percent_line">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>110</y>
+      <width>270</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::StrongFocus</enum>
+    </property>
+   </widget>
+   <widget class="CustomQTextEdit" name="year_line">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>220</y>
+      <width>261</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::StrongFocus</enum>
+    </property>
+   </widget>
+   <widget class="CustomQTextEdit" name="month_line">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>220</y>
+      <width>261</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::StrongFocus</enum>
+    </property>
+   </widget>
+   <widget class="CustomQTextEdit" name="start_year_line">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>610</y>
+      <width>260</width>
+      <height>40</height>
      </rect>
     </property>
    </widget>
-   <widget class="QTextEdit" name="annual_percent_line">
+   <widget class="CustomQTextEdit" name="start_month_line">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>40</y>
-      <width>104</width>
-      <height>21</height>
+      <x>360</x>
+      <y>610</y>
+      <width>260</width>
+      <height>40</height>
      </rect>
     </property>
    </widget>
-   <widget class="QTextEdit" name="year_line">
+   <widget class="CustomQTextEdit" name="end_year_line">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>130</y>
-      <width>104</width>
-      <height>21</height>
+      <x>50</x>
+      <y>720</y>
+      <width>260</width>
+      <height>40</height>
      </rect>
     </property>
    </widget>
-   <widget class="QTextEdit" name="month_line">
+   <widget class="CustomQTextEdit" name="end_month_line">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>130</y>
-      <width>104</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="start_year_line">
-    <property name="geometry">
-     <rect>
-      <x>1100</x>
-      <y>100</y>
-      <width>104</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="start_month_line">
-    <property name="geometry">
-     <rect>
-      <x>1240</x>
-      <y>100</y>
-      <width>104</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="end_year_line">
-    <property name="geometry">
-     <rect>
-      <x>1100</x>
-      <y>160</y>
-      <width>104</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="end_month_line">
-    <property name="geometry">
-     <rect>
-      <x>1240</x>
-      <y>160</y>
-      <width>104</width>
-      <height>21</height>
+      <x>360</x>
+      <y>720</y>
+      <width>260</width>
+      <height>40</height>
      </rect>
     </property>
    </widget>
    <widget class="QLabel" name="label_14">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>0</y>
+      <x>50</x>
+      <y>300</y>
       <width>171</width>
-      <height>20</height>
+      <height>30</height>
      </rect>
     </property>
     <property name="text">
@@ -342,44 +302,48 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>700</x>
-      <y>250</y>
-      <width>651</width>
-      <height>381</height>
+      <x>780</x>
+      <y>400</y>
+      <width>671</width>
+      <height>361</height>
      </rect>
     </property>
     <widget class="QWidget" name="verticalLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>9</x>
-       <y>9</y>
-       <width>601</width>
-       <height>361</height>
+       <x>0</x>
+       <y>0</y>
+       <width>670</width>
+       <height>360</height>
       </rect>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout"/>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetDefaultConstraint</enum>
+      </property>
+     </layout>
     </widget>
    </widget>
    <widget class="QPushButton" name="saveChartPDF">
     <property name="geometry">
      <rect>
-      <x>830</x>
-      <y>220</y>
-      <width>181</width>
-      <height>29</height>
+      <x>50</x>
+      <y>440</y>
+      <width>260</width>
+      <height>40</height>
      </rect>
     </property>
     <property name="text">
-     <string>save chart as pdf</string>
+     <string>Save chart as PDF</string>
     </property>
    </widget>
    <widget class="QSlider" name="startDateSlider">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>200</y>
-      <width>160</width>
-      <height>18</height>
+      <x>360</x>
+      <y>340</y>
+      <width>120</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="orientation">
@@ -389,10 +353,10 @@
    <widget class="QSlider" name="endDateSlider">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>200</y>
-      <width>160</width>
-      <height>18</height>
+      <x>490</x>
+      <y>340</y>
+      <width>120</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="orientation">
@@ -402,27 +366,95 @@
    <widget class="QLabel" name="filterStartLabel">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>180</y>
-      <width>63</width>
-      <height>20</height>
+      <x>450</x>
+      <y>300</y>
+      <width>40</width>
+      <height>30</height>
      </rect>
     </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
     <property name="text">
-     <string>start</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="filterEndLabel">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>180</y>
-      <width>63</width>
-      <height>20</height>
+      <x>590</x>
+      <y>300</y>
+      <width>40</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="text">
-     <string>end</string>
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="importFromCSVButton">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>390</y>
+      <width>120</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Import data</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="exportToCSVButton">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>390</y>
+      <width>120</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Export data</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="titleText">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>20</y>
+      <width>431</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Mortgage Buddy</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>300</y>
+      <width>91</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Start month:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>300</y>
+      <width>81</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>End month:</string>
     </property>
    </widget>
   </widget>
@@ -431,29 +463,44 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1395</width>
+     <width>1500</width>
      <height>25</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuMortgage_Buddy">
+    <property name="title">
+     <string> </string>
+    </property>
+   </widget>
+   <addaction name="menuMortgage_Buddy"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CustomQTextEdit</class>
+   <extends>QTextEdit</extends>
+   <header>customqtextedit.h</header>
+  </customwidget>
+ </customwidgets>
  <tabstops>
-  <tabstop>calculate_button</tabstop>
-  <tabstop>annuit_box</tabstop>
-  <tabstop>linear_box</tabstop>
-  <tabstop>month_list</tabstop>
   <tabstop>loan_amount_line</tabstop>
   <tabstop>annual_percent_line</tabstop>
   <tabstop>year_line</tabstop>
   <tabstop>month_line</tabstop>
+  <tabstop>annuit_box</tabstop>
+  <tabstop>linear_box</tabstop>
+  <tabstop>calculate_button</tabstop>
   <tabstop>start_year_line</tabstop>
   <tabstop>start_month_line</tabstop>
   <tabstop>end_year_line</tabstop>
   <tabstop>end_month_line</tabstop>
   <tabstop>saveChartPDF</tabstop>
+  <tabstop>exportToCSVButton</tabstop>
+  <tabstop>importFromCSVButton</tabstop>
   <tabstop>startDateSlider</tabstop>
   <tabstop>endDateSlider</tabstop>
+  <tabstop>month_list</tabstop>
  </tabstops>
  <resources/>
  <connections/>

@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/styles">
+        <file>styles.qss</file>
+    </qresource>
+    <qresource prefix="/fonts">
+        <file>fonts/Inter-VariableFont.ttf</file>
+        <file>fonts/Roboto-Bold.ttf</file>
+        <file>fonts/Roboto-Light.ttf</file>
+        <file>fonts/Roboto-Regular.ttf</file>
+        <file>fonts/Poppins-Black.ttf</file>
+        <file>fonts/Poppins-Bold.ttf</file>
+        <file>fonts/Poppins-Light.ttf</file>
+        <file>fonts/Poppins-Medium.ttf</file>
+        <file>fonts/Poppins-Regular.ttf</file>
+    </qresource>
+</RCC>

@@ -1,10 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "customQTextEdit.h"
 #include <QTreeWidget>
 #include <QTreeWidgetItem>
 // #include <QFileDialog>
 #include <QPdfWriter>
 #include <QPainter>
+#include <QBrush>
+#include <QFont>
+#include <QColor>
 #include "calculations.h"
 
 QLineSeries *series;
@@ -27,6 +31,12 @@ MainWindow::MainWindow(QWidget *parent)
     headers << "Month" << "Monthly Payment" << "Interest Payment" << "Remaining Balance";
     ui->month_list->setHeaderLabels(headers);
 
+    // Manually set the width for each column
+    ui->month_list->setColumnWidth(0, 75); // Set width of column 0 to 100 pixels
+    ui->month_list->setColumnWidth(1, 170); // Set width of column 1 to 200 pixels
+    ui->month_list->setColumnWidth(2, 170); // Set width of column 2 to 200 pixels
+    ui->month_list->setColumnWidth(3, 170); // Set width of column 3 to 200 pixels
+
     connect(ui->startDateSlider, &QSlider::valueChanged, [this](int value) {
         ui->filterStartLabel->setText(QString::number(value));
         filter_start = value;
@@ -41,9 +51,9 @@ MainWindow::MainWindow(QWidget *parent)
         drawGraph(Calculations(loan_amount, annual_percent, years, months, delay_start, delay_end, is_annuit, is_linear).getList());
     });
 
+    ui->month_list->header()->setDefaultAlignment(Qt::AlignCenter);
 
     createGraph();
-    
 }
 
 MainWindow::~MainWindow()
@@ -92,6 +102,17 @@ void MainWindow::on_linear_box_stateChanged()
 void MainWindow::on_saveChartPDF_clicked()
 {
     printGraphAsPDF();
+}
+
+void MainWindow::on_exportToCSVButton_clicked()
+{
+    Calculations newCalculations(loan_amount, annual_percent, years, months, delay_start, delay_end, is_annuit, is_linear);
+    exportToCSV(newCalculations.getList());
+}
+
+void MainWindow::on_importFromCSVButton_clicked()
+{
+
 }
 
 /**
@@ -143,6 +164,14 @@ void MainWindow::fillView(std::vector<MonthInfo> list) {
         rowData << QString::number(list[i].getRemainingBalance(), 'f', 2);  // Remaining Balance
         ui->month_list->addTopLevelItem(new QTreeWidgetItem(rowData));
     }
+
+    for(int i = 0; i < ui->month_list->topLevelItemCount(); ++i) {
+        QTreeWidgetItem *item = ui->month_list->topLevelItem(i);
+        for(int j = 0; j < item->columnCount(); ++j) {
+            item->setTextAlignment(j, Qt::AlignCenter);
+        }
+    }
+
 }
 
 
@@ -185,12 +214,39 @@ void MainWindow::createGraph() {
     // Attach the series to the axes
     series->attachAxis(axisX);
     series->attachAxis(axisY);
+    series->setColor(QColor("#7b9d85"));
+    QPen pen(QColor("#7b9d85"));
+    pen.setWidth(3);
+    series->setPen(pen);
+
+    QColor chartBackgroundColor("#22232a");
+    chart->setBackgroundBrush(QBrush(chartBackgroundColor));
+
+    // Set the background color of the QChartView to be transparent
+    chartView->setStyleSheet("background-color: transparent;");
+
+    // Set the background color and border of the chartWidget
+    ui->chartWidget->setStyleSheet("background-color: #22232a; border: 2px solid; border-color: #7b9d85; border-radius: 6px");
+
+    QFont font;
+    font.setBold(true);
+    axisX->setTitleFont(font);
+    axisX->setTitleBrush(QBrush(Qt::white));
+
+    axisY->setTitleFont(font);
+    axisY->setTitleBrush(QBrush(Qt::white));
 
     axisX->setTitleText("Month");           // X axis title
     axisY->setTitleText("Monthly Payment"); // Y axis title
 
     axisX->setLabelFormat("%.0f");          // Format month numeration
     axisY->setLabelFormat("%.2f");          // Format currency numeration
+
+    // Set the color of the X axis labels to white
+    axisX->setLabelsColor(Qt::white);
+
+    // Set the color of the Y axis labels to white
+    axisY->setLabelsColor(Qt::white);
 
     chart->legend()->hide();
 }
@@ -254,5 +310,28 @@ void MainWindow::printGraphAsPDF() {
     chartView->render(&painter, QRectF(pos, size), chartView->rect());
 
     painter.end();
+}
+
+void MainWindow::exportToCSV(std::vector<MonthInfo> list) {
+    QFile file("data.csv");
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        qDebug() << "Could not open file for writing:" << file.errorString();
+        return;
+    }
+
+    QTextStream out(&file);
+
+    // Write headers
+    out << "Month,Monthly Payment,Interest Payment,Remaining Balance\n";
+
+    // Write data
+    for (const MonthInfo &info : list) {
+        out << info.getMonth() << ","
+            << info.getMonthlyPayment() << ","
+            << info.getInterestPayment() << ","
+            << info.getRemainingBalance() << "\n";
+    }
+
+    file.close();
 }
 
