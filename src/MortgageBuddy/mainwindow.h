@@ -48,6 +48,7 @@ private:
     AnnuitListCreationStrategy* annuitStrategy;
     LinearListCreationStrategy* linearStrategy;
     Ui::MainWindow *ui;
+    std::vector<int> addedMonths;
     double loan_amount;
     double annual_percent;
     int years;

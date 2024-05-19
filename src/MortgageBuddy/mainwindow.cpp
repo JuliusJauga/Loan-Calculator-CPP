@@ -9,6 +9,7 @@
 #include <QBrush>
 #include <QFont>
 #include <QColor>
+#include <algorithm>
 #include "calculations.h"
 
 QLineSeries *series;
@@ -67,10 +68,24 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
+/**
+ * @brief Clears the items in a QTreeWidget.
+ *
+ * This function removes all items from the specified QTreeWidget.
+ *
+ * @param treeWidget The QTreeWidget to be cleared.
+ * 
+ * @author Julius Jauga
+ */
+void clearTreeWidget(QTreeWidget* treeWidget) {
+    while (treeWidget->topLevelItemCount() > 0) {
+        delete treeWidget->takeTopLevelItem(0);
+    }
+}
 void MainWindow::on_calculate_button_clicked()
 {
     //clickedFlag = 1;
+    clearTreeWidget(ui->paid_month_list);
     if (!getData() || (is_annuit == false && is_linear == false)) {
         return;
     }
@@ -342,7 +357,45 @@ void MainWindow::exportToCSV(std::vector<MonthInfo> list) {
     file.close();
 }
 
+/**
+ * @brief Swaps the items at the specified indices in a QTreeWidget.
+ * 
+ * This function swaps the items at the given indices in the specified QTreeWidget.
+ * If both indices are valid and the items exist, the function removes the items from their original positions
+ * and inserts them at each other's positions.
+ * 
+ * @param treeWidget The QTreeWidget in which the items are to be swapped.
+ * @param firstIndex The index of the first item to be swapped.
+ * @param secondIndex The index of the second item to be swapped.
+ * 
+ * @author Julius Jauga
+ */
+void swapWidgetItems(QTreeWidget* treeWidget, int firstIndex, int secondIndex) {
+    QTreeWidgetItem* firstItem = treeWidget->topLevelItem(firstIndex);
+    QTreeWidgetItem* secondItem = treeWidget->topLevelItem(secondIndex);
 
+    if (firstItem && secondItem) {
+        treeWidget->takeTopLevelItem(firstIndex);
+        treeWidget->takeTopLevelItem(secondIndex);
+
+        treeWidget->insertTopLevelItem(secondIndex, firstItem);
+        treeWidget->insertTopLevelItem(firstIndex, secondItem);
+    }
+}
+
+
+/**
+ * @brief Slot function triggered when an item in the month_list QTreeWidget is double-clicked.
+ * 
+ * This function handles the logic for adding the selected item to the paid_month_list QTreeWidget.
+ * It checks if the item has already been added and if not, clones the item and adds it to the paid_month_list.
+ * The addedMonths vector keeps track of the added items' indices for sorting purposes.
+ * 
+ * @param item The selected item in the month_list QTreeWidget.
+ * @param column The column index of the selected item.
+ * 
+ * @author Julius Jauga
+ */
 void MainWindow::on_month_list_itemDoubleClicked(QTreeWidgetItem *item, int column)
 {
     QTreeWidget *treeWidget = ui->month_list;
@@ -350,14 +403,21 @@ void MainWindow::on_month_list_itemDoubleClicked(QTreeWidgetItem *item, int colu
     int rowIndex = treeWidget->indexOfTopLevelItem(item);
 
     if (rowIndex != -1) {
-        qDebug() << "Double-clicked row index:" << rowIndex;
+        if (std::find(addedMonths.begin(), addedMonths.end(), rowIndex) != addedMonths.end()) {
+            return;
+        }
         QTreeWidgetItem *item = treeWidget->topLevelItem(rowIndex);
         if (item) {
             ui->paid_month_list->addTopLevelItem(item->clone());
+            addedMonths.push_back(rowIndex);
+            for(size_t i = addedMonths.size() - 1; i > 0; i--) {
+                if (addedMonths[i] < addedMonths[i-1]) {
+                    std::swap(addedMonths[i], addedMonths[i-1]);
+                    swapWidgetItems(ui->paid_month_list, i, i-1);
+                }
+            }
         }
         else return;
-        //QTreeWidgetItem *newItem = new QTreeWidgetItem();
-        //ui->paid_month_list->addTopLevelItem(ui->month_list->topLevelItem(rowIndex));
     }
     else return;
 }
