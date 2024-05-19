@@ -51,6 +51,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->startDateSlider, &QSlider::valueChanged, [this](int value) {
         ui->filterStartLabel->setText(QString::number(value));
+        if (value > filter_end) ui->endDateSlider->setValue(value);
         filter_start = value;
 
         filterData();
@@ -58,6 +59,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->endDateSlider, &QSlider::valueChanged, [this](int value) {
         ui->filterEndLabel->setText(QString::number(value));
+        if (value < filter_start) ui->startDateSlider->setValue(value);
         filter_end = value;
         
         filterData();
@@ -135,13 +137,16 @@ void MainWindow::on_saveChartPDF_clicked()
 
 void MainWindow::on_exportToCSVButton_clicked()
 {
+    if (!getData() || (is_annuit == false && is_linear == false)) {
+        return;
+    }
     Calculations newCalculations(loan_amount, annual_percent, years, months, delay_start, delay_end, is_annuit, is_linear);
     exportToCSV(newCalculations.getList());
 }
 
 void MainWindow::on_importFromCSVButton_clicked()
 {
-
+    importFromCSV();
 }
 void MainWindow::filterData() {
 
@@ -392,6 +397,112 @@ void MainWindow::exportToCSV(std::vector<MonthInfo> list) {
             << info.getInterestPayment() << ","
             << info.getRemainingBalance() << "\n";
     }
+
+    file.close();
+
+    QFile file2("inputs.csv");
+    if (!file2.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        qDebug() << "Could not open file for writing:" << file.errorString();
+        return;
+    }
+
+    QTextStream out2(&file2);
+
+    out2 << "Loan amount,Interest rate,Years,Months,Is Annuit,Is Linear,Start Year, Start Month, End Year, End Month\n";
+
+    out2 << loan_amount << ","
+        << annual_percent << ","
+        << years << ","
+        << months << ","
+        << is_annuit << ","
+        << is_linear << ","
+        << ui->start_year_line->toPlainText().toInt() << ","
+        << ui->start_month_line->toPlainText().toInt() << ","
+        << ui->end_year_line->toPlainText().toInt() << ","
+        << ui->end_month_line->toPlainText().toInt() << "\n";
+
+    file2.close();    
+
+}
+
+void MainWindow::importFromCSV() {
+
+    QFile file2("inputs.csv");
+    if (!file2.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qDebug() << "Could not open file for reading:" << file2.errorString();
+        return;
+    }
+
+    QTextStream in2(&file2);
+    in2.readLine();
+
+    QString line2 = in2.readLine();
+    QStringList fields2 = line2.split(",");
+    if (fields2.size() != 10) {
+        qDebug() << "Invalid line:" << line2;
+        return;
+    }
+
+    ui->loan_amount_line->setText(fields2[0]);
+    ui->annual_percent_line->setText(fields2[1]);
+    ui->year_line->setText(fields2[2]);
+    ui->month_line->setText(fields2[3]);
+    if (fields2[4] == "1") {
+        ui->annuit_box->setChecked(true);
+    }
+    else {
+        ui->linear_box->setChecked(true);
+    }
+    if (fields2[6] != "0") {
+        ui->start_year_line->setText(fields2[6]);
+    }
+
+    if (fields2[7] != "0") {
+        ui->start_month_line->setText(fields2[7]);
+    }
+
+    if (fields2[8] != "0") {
+        ui->end_year_line->setText(fields2[8]);
+    }
+
+    if (fields2[9] != "0") {
+        ui->end_month_line->setText(fields2[9]);
+    }
+
+
+
+
+    QFile file("data.csv");
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qDebug() << "Could not open file for reading:" << file.errorString();
+        return;
+    }
+
+    QTextStream in(&file);
+    std::vector<MonthInfo> importedList;
+    // Skip headers
+    in.readLine();
+
+    // Read data
+    while (!in.atEnd()) {
+        QString line = in.readLine();
+        QStringList fields = line.split(",");
+        if (fields.size() != 4) {
+            qDebug() << "Invalid line:" << line;
+            continue;
+        }
+
+        int month = fields[0].toInt();
+        double monthlyPayment = fields[1].toDouble();
+        double interestPayment = fields[2].toDouble();
+        double remainingBalance = fields[3].toDouble();
+        importedList.push_back(MonthInfo(month, monthlyPayment, interestPayment, remainingBalance));
+        
+    }
+
+    fillView(importedList);
+    drawGraph(importedList);
+    on_calculate_button_clicked();
 
     file.close();
 }
