@@ -27,15 +27,20 @@ MainWindow::MainWindow(QWidget *parent)
     is_annuit = false;
     ui->setupUi(this);
     ui->month_list->setColumnCount(4);
+    ui->paid_month_list->setColumnCount(4);
     QStringList headers;
     headers << "Month" << "Monthly Payment" << "Interest Payment" << "Remaining Balance";
     ui->month_list->setHeaderLabels(headers);
-
+    ui->paid_month_list->setHeaderLabels(headers);
     // Manually set the width for each column
     ui->month_list->setColumnWidth(0, 75); // Set width of column 0 to 100 pixels
     ui->month_list->setColumnWidth(1, 170); // Set width of column 1 to 200 pixels
     ui->month_list->setColumnWidth(2, 170); // Set width of column 2 to 200 pixels
     ui->month_list->setColumnWidth(3, 170); // Set width of column 3 to 200 pixels
+    ui->paid_month_list->setColumnWidth(0, 75); // Set width of column 0 to 100 pixels
+    ui->paid_month_list->setColumnWidth(1, 170); // Set width of column 1 to 200 pixels
+    ui->paid_month_list->setColumnWidth(2, 170); // Set width of column 2 to 200 pixels
+    ui->paid_month_list->setColumnWidth(3, 170); // Set width of column 3 to 200 pixels
 
     connect(ui->startDateSlider, &QSlider::valueChanged, [this](int value) {
         ui->filterStartLabel->setText(QString::number(value));
@@ -52,7 +57,9 @@ MainWindow::MainWindow(QWidget *parent)
     });
 
     ui->month_list->header()->setDefaultAlignment(Qt::AlignCenter);
-
+    ui->paid_month_list->header()->setDefaultAlignment(Qt::AlignCenter);
+    ui->tabWidget->setTabText(0, "Month list");
+    ui->tabWidget->setTabText(1, "Paid month list");
     createGraph();
 }
 
@@ -333,5 +340,25 @@ void MainWindow::exportToCSV(std::vector<MonthInfo> list) {
     }
 
     file.close();
+}
+
+
+void MainWindow::on_month_list_itemDoubleClicked(QTreeWidgetItem *item, int column)
+{
+    QTreeWidget *treeWidget = ui->month_list;
+
+    int rowIndex = treeWidget->indexOfTopLevelItem(item);
+
+    if (rowIndex != -1) {
+        qDebug() << "Double-clicked row index:" << rowIndex;
+        QTreeWidgetItem *item = treeWidget->topLevelItem(rowIndex);
+        if (item) {
+            ui->paid_month_list->addTopLevelItem(item->clone());
+        }
+        else return;
+        //QTreeWidgetItem *newItem = new QTreeWidgetItem();
+        //ui->paid_month_list->addTopLevelItem(ui->month_list->topLevelItem(rowIndex));
+    }
+    else return;
 }
 

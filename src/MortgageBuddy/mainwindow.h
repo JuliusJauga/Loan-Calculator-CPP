@@ -41,6 +41,8 @@ private slots:
 
     void on_importFromCSVButton_clicked();
 
+    void on_month_list_itemDoubleClicked(QTreeWidgetItem *item, int column);
+
 private:
     ListCreationStrategy* strategy; 
     AnnuitListCreationStrategy* annuitStrategy;
