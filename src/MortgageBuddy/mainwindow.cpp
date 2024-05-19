@@ -12,11 +12,13 @@ QChart *chart;
 QValueAxis *axisX;
 QValueAxis *axisY;
 QChartView *chartView;
+bool clickedFlag = 0;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    //ui->endDateSlider->setVisible(false);
     is_linear = false;
     is_annuit = false;
     ui->setupUi(this);
@@ -51,6 +53,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_calculate_button_clicked()
 {
+    //clickedFlag = 1;
     if (!getData() || (is_annuit == false && is_linear == false)) {
         return;
     }
@@ -58,6 +61,7 @@ void MainWindow::on_calculate_button_clicked()
     // getFilterData();
     fillView(newCalculations.getList());
     drawGraph(newCalculations.getList());
+    //ui->endDateSlider->setVisible(true);
 }
 
 
@@ -130,7 +134,7 @@ int MainWindow::getData() {
 void MainWindow::fillView(std::vector<MonthInfo> list) {
     ui->month_list->isEnabled();
     ui->month_list->clear();
-    for (size_t i = 0; i <= list.size() - 1; ++i) {
+    for (int i = 0; i <= (int)list.size() - 1; ++i) {
         if (i+1 < filter_start || i+1 > filter_end) continue;
         QStringList rowData;
         rowData << QString::number(list[i].getMonth());       // Month
@@ -206,7 +210,7 @@ void MainWindow::drawGraph(std::vector<MonthInfo> list) {
     series->clear();
 
     double biggestPayment = 0;
-    for (size_t i = 0; i < list.size(); ++i) {
+    for (int i = 0; i < (int)list.size(); ++i) {
         if (i+1 < filter_start || i+1 > filter_end) continue;
         series->append(list[i].getMonth(), list[i].getMonthlyPayment());
         if (list[i].getMonthlyPayment() > biggestPayment) biggestPayment = list[i].getMonthlyPayment(); // Getting the biggest monthly payment for Y axis scale
