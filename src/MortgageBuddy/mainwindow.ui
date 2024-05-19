@@ -105,27 +105,6 @@
      <string>Loan term months</string>
     </property>
    </widget>
-   <widget class="QTreeWidget" name="month_list">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>780</x>
-      <y>40</y>
-      <width>671</width>
-      <height>340</height>
-     </rect>
-    </property>
-    <attribute name="headerDefaultSectionSize">
-     <number>100</number>
-    </attribute>
-    <column>
-     <property name="text">
-      <string notr="true">1</string>
-     </property>
-    </column>
-   </widget>
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
@@ -457,6 +436,47 @@
      <string>End month:</string>
     </property>
    </widget>
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>780</x>
+      <y>40</y>
+      <width>671</width>
+      <height>341</height>
+     </rect>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Tab 1</string>
+     </attribute>
+     <widget class="QTreeWidget" name="month_list">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>671</width>
+        <height>340</height>
+       </rect>
+      </property>
+      <attribute name="headerDefaultSectionSize">
+       <number>100</number>
+      </attribute>
+      <column>
+       <property name="text">
+        <string notr="true">1</string>
+       </property>
+      </column>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Tab 2</string>
+     </attribute>
+    </widget>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -464,12 +484,12 @@
      <x>0</x>
      <y>0</y>
      <width>1500</width>
-     <height>25</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMortgage_Buddy">
     <property name="title">
-     <string> </string>
+     <string/>
     </property>
    </widget>
    <addaction name="menuMortgage_Buddy"/>
