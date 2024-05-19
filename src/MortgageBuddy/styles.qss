@@ -29,6 +29,7 @@ CustomQTextEdit {
     border: 2px solid;
     border-radius: 6px;
     border-color: #7b9d85;
+    color: white;
 }
 
 CustomQTextEdit:focus {
