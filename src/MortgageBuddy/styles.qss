@@ -83,35 +83,58 @@ QTreeWidget {
     border: 2px solid;
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
-    padding-top: -1px;
-    padding-left: -1px;
-    padding-right: -1px;
+    padding-top: -2px;
+    padding-left: -2px;
+    padding-right: -2px;
     padding-bottom: 0px;
     border-color: #7b9d85;
 }
 
 QHeaderView::section {
-    background-color: #7b9d85; /* Change to your desired color */
-    color: white; /* Change to your desired color */
+    background-color: #7b9d85;
+    color: white; 
     border: 0px;
-    margin-top: -1px;
+    margin-left: -1px;
     padding: 0px;
+    border: 0px;
     border-radius: 0px;
 }    
 
-QTreeWidget QScrollBar {
-    width: 0px; /* Hide the scrollbar */
+
+/* QTabWidget */
+
+QTabWidget {
     background: transparent;
+    border: 0px solid;
 }
 
-QTreeWidget QScrollBar::handle {
+QTabWidget::pane {
+    color: white;
+    font-family: "Poppins";
+    font-size: 12px;
     background: transparent;
+    border: 0px solid;
+    /* border: 2px solid;
+    border-radius: 6px;
+    border-color: #7b9d85; */
 }
 
-QTreeWidget QScrollBar::handle:hover {
+/* QTabBar */
+QTabBar::tab {
     background: transparent;
+    border: 2px solid #7b9d85;
+    border-radius: 6px;
+    min-width: 80px;
+    margin-right: 10px;
 }
 
+QTabBar::tab:selected {
+    background: #7b9d85;
+}
+
+QTabBar::tab:hover {
+    border-color: #c4dccc;
+}
 
 /* Sliders */
 
