@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1500</width>
-    <height>845</height>
+    <height>820</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -76,7 +76,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Annuit</string>
+     <string>Annuity</string>
     </property>
    </widget>
    <widget class="QCheckBox" name="linear_box">
@@ -467,6 +467,12 @@
      <height>25</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuMortgage_Buddy">
+    <property name="title">
+     <string> </string>
+    </property>
+   </widget>
+   <addaction name="menuMortgage_Buddy"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

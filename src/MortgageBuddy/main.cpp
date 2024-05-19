@@ -36,6 +36,11 @@ int main(int argc, char *argv[])
     }
 
     MainWindow w;
+    w.setWindowTitle("Mortgage Buddy");
+    QPixmap transparentPixmap(1, 1);
+    transparentPixmap.fill(Qt::transparent);
+    w.setWindowIcon(QIcon(transparentPixmap));
+    w.setFixedSize(1500, 820);
     w.show();
     return a.exec();
 }
