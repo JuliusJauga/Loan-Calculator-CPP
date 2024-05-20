@@ -28,6 +28,7 @@ public:
     void printGraphAsPDF();
     void exportToCSV(std::vector<MonthInfo> list);
     void filterData();
+    void importFromCSV();
 
 private slots:
     void on_calculate_button_clicked();
@@ -49,6 +50,7 @@ private:
     AnnuitListCreationStrategy* annuitStrategy;
     LinearListCreationStrategy* linearStrategy;
     Ui::MainWindow *ui;
+    std::vector<int> addedMonths;
     double loan_amount;
     double annual_percent;
     int years;

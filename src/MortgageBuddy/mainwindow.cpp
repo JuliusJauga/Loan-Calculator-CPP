@@ -3,19 +3,24 @@
 #include "customQTextEdit.h"
 #include <QTreeWidget>
 #include <QTreeWidgetItem>
+#include <QtWidgets>
+#include <QtCharts>
 // #include <QFileDialog>
 #include <QPdfWriter>
 #include <QPainter>
 #include <QBrush>
 #include <QFont>
 #include <QColor>
+#include <algorithm>
 #include "calculations.h"
 
-QLineSeries *series;
+QScatterSeries *series;
+QScatterSeries *greenSeries;
 QChart *chart;
 QValueAxis *axisX;
 QValueAxis *axisY;
 QChartView *chartView;
+
 bool clickedFlag = 0;
 
 MainWindow::MainWindow(QWidget *parent)
@@ -46,6 +51,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->startDateSlider, &QSlider::valueChanged, [this](int value) {
         ui->filterStartLabel->setText(QString::number(value));
+        if (value > filter_end) ui->endDateSlider->setValue(value);
         filter_start = value;
 
         filterData();
@@ -53,6 +59,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->endDateSlider, &QSlider::valueChanged, [this](int value) {
         ui->filterEndLabel->setText(QString::number(value));
+        if (value < filter_start) ui->startDateSlider->setValue(value);
         filter_end = value;
         
         filterData();
@@ -69,10 +76,24 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
+/**
+ * @brief Clears the items in a QTreeWidget.
+ *
+ * This function removes all items from the specified QTreeWidget.
+ *
+ * @param treeWidget The QTreeWidget to be cleared.
+ * 
+ * @author Julius Jauga
+ */
+void clearTreeWidget(QTreeWidget* treeWidget) {
+    while (treeWidget->topLevelItemCount() > 0) {
+        delete treeWidget->takeTopLevelItem(0);
+    }
+}
 void MainWindow::on_calculate_button_clicked()
 {
     //clickedFlag = 1;
+    clearTreeWidget(ui->paid_month_list);
     if (!getData() || (is_annuit == false && is_linear == false)) {
         return;
     }
@@ -116,13 +137,16 @@ void MainWindow::on_saveChartPDF_clicked()
 
 void MainWindow::on_exportToCSVButton_clicked()
 {
+    if (!getData() || (is_annuit == false && is_linear == false)) {
+        return;
+    }
     Calculations newCalculations(loan_amount, annual_percent, years, months, delay_start, delay_end, is_annuit, is_linear);
     exportToCSV(newCalculations.getList());
 }
 
 void MainWindow::on_importFromCSVButton_clicked()
 {
-
+    importFromCSV();
 }
 void MainWindow::filterData() {
 
@@ -222,23 +246,35 @@ void MainWindow::setFilterLimits(int years, int months) {
  */
 
 void MainWindow::createGraph() {
-    series = new QLineSeries();
+    greenSeries = new QScatterSeries();
+    series = new QScatterSeries();
     chart = new QChart;
     axisX = new QValueAxis();
     axisY = new QValueAxis();
     chart->addSeries(series);
+    chart->addSeries(greenSeries);
     chartView = new QChartView(chart);
     ui->verticalLayout->addWidget(chartView);
     chart->addAxis(axisX, Qt::AlignBottom);
     chart->addAxis(axisY, Qt::AlignLeft);
 
+
+
     // Attach the series to the axes
     series->attachAxis(axisX);
     series->attachAxis(axisY);
+    greenSeries->attachAxis(axisY);
+    greenSeries->attachAxis(axisX);
     series->setColor(QColor("#7b9d85"));
-    QPen pen(QColor("#7b9d85"));
-    pen.setWidth(3);
-    series->setPen(pen);
+    series->setMarkerShape(QScatterSeries::MarkerShapeCircle);
+    greenSeries->setMarkerShape(QScatterSeries::MarkerShapeCircle);
+    series->setMarkerSize(1);
+    greenSeries->setMarkerSize(10);
+
+    chart->addSeries(greenSeries);
+    //QPen pen(QColor("#7b9d85"));
+    //pen.setW3idth(1);
+    //series->setPen(pen);
 
     QColor chartBackgroundColor("#22232a");
     chart->setBackgroundBrush(QBrush(chartBackgroundColor));
@@ -285,14 +321,23 @@ void MainWindow::createGraph() {
 
 void MainWindow::drawGraph(std::vector<MonthInfo> list) {
     series->clear();
-
+    greenSeries->clear();
     double biggestPayment = 0;
     for (int i = 0; i < (int)list.size(); ++i) {
         if (i+1 < filter_start || i+1 > filter_end) continue;
-        series->append(list[i].getMonth(), list[i].getMonthlyPayment());
+
+
+        if (std::find(addedMonths.begin(), addedMonths.end(), i) != addedMonths.end()) {
+            greenSeries->append(list[i].getMonth(), list[i].getMonthlyPayment());
+        }
+        else {
+            series->append(list[i].getMonth(), list[i].getMonthlyPayment());
+        }
+
+
         if (list[i].getMonthlyPayment() > biggestPayment) biggestPayment = list[i].getMonthlyPayment(); // Getting the biggest monthly payment for Y axis scale
     }
-
+    greenSeries->setColor(Qt::green);
     // Set range of X and Y axes
     axisX->setRange(0, list.size() + 1);
     axisY->setRange(0, biggestPayment + biggestPayment * 0.1);
@@ -354,9 +399,153 @@ void MainWindow::exportToCSV(std::vector<MonthInfo> list) {
     }
 
     file.close();
+
+    QFile file2("inputs.csv");
+    if (!file2.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        qDebug() << "Could not open file for writing:" << file.errorString();
+        return;
+    }
+
+    QTextStream out2(&file2);
+
+    out2 << "Loan amount,Interest rate,Years,Months,Is Annuit,Is Linear,Start Year, Start Month, End Year, End Month\n";
+
+    out2 << loan_amount << ","
+        << annual_percent << ","
+        << years << ","
+        << months << ","
+        << is_annuit << ","
+        << is_linear << ","
+        << ui->start_year_line->toPlainText().toInt() << ","
+        << ui->start_month_line->toPlainText().toInt() << ","
+        << ui->end_year_line->toPlainText().toInt() << ","
+        << ui->end_month_line->toPlainText().toInt() << "\n";
+
+    file2.close();    
+
+}
+
+void MainWindow::importFromCSV() {
+
+    QFile file2("inputs.csv");
+    if (!file2.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qDebug() << "Could not open file for reading:" << file2.errorString();
+        return;
+    }
+
+    QTextStream in2(&file2);
+    in2.readLine();
+
+    QString line2 = in2.readLine();
+    QStringList fields2 = line2.split(",");
+    if (fields2.size() != 10) {
+        qDebug() << "Invalid line:" << line2;
+        return;
+    }
+
+    ui->loan_amount_line->setText(fields2[0]);
+    ui->annual_percent_line->setText(fields2[1]);
+    ui->year_line->setText(fields2[2]);
+    ui->month_line->setText(fields2[3]);
+    if (fields2[4] == "1") {
+        ui->annuit_box->setChecked(true);
+    }
+    else {
+        ui->linear_box->setChecked(true);
+    }
+    if (fields2[6] != "0") {
+        ui->start_year_line->setText(fields2[6]);
+    }
+
+    if (fields2[7] != "0") {
+        ui->start_month_line->setText(fields2[7]);
+    }
+
+    if (fields2[8] != "0") {
+        ui->end_year_line->setText(fields2[8]);
+    }
+
+    if (fields2[9] != "0") {
+        ui->end_month_line->setText(fields2[9]);
+    }
+
+
+
+
+    QFile file("data.csv");
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qDebug() << "Could not open file for reading:" << file.errorString();
+        return;
+    }
+
+    QTextStream in(&file);
+    std::vector<MonthInfo> importedList;
+    // Skip headers
+    in.readLine();
+
+    // Read data
+    while (!in.atEnd()) {
+        QString line = in.readLine();
+        QStringList fields = line.split(",");
+        if (fields.size() != 4) {
+            qDebug() << "Invalid line:" << line;
+            continue;
+        }
+
+        int month = fields[0].toInt();
+        double monthlyPayment = fields[1].toDouble();
+        double interestPayment = fields[2].toDouble();
+        double remainingBalance = fields[3].toDouble();
+        importedList.push_back(MonthInfo(month, monthlyPayment, interestPayment, remainingBalance));
+        
+    }
+
+    fillView(importedList);
+    drawGraph(importedList);
+    on_calculate_button_clicked();
+
+    file.close();
+}
+
+/**
+ * @brief Swaps the items at the specified indices in a QTreeWidget.
+ * 
+ * This function swaps the items at the given indices in the specified QTreeWidget.
+ * If both indices are valid and the items exist, the function removes the items from their original positions
+ * and inserts them at each other's positions.
+ * 
+ * @param treeWidget The QTreeWidget in which the items are to be swapped.
+ * @param firstIndex The index of the first item to be swapped.
+ * @param secondIndex The index of the second item to be swapped.
+ * 
+ * @author Julius Jauga
+ */
+void swapWidgetItems(QTreeWidget* treeWidget, int firstIndex, int secondIndex) {
+    QTreeWidgetItem* firstItem = treeWidget->topLevelItem(firstIndex);
+    QTreeWidgetItem* secondItem = treeWidget->topLevelItem(secondIndex);
+
+    if (firstItem && secondItem) {
+        treeWidget->takeTopLevelItem(firstIndex);
+        treeWidget->takeTopLevelItem(secondIndex);
+
+        treeWidget->insertTopLevelItem(secondIndex, firstItem);
+        treeWidget->insertTopLevelItem(firstIndex, secondItem);
+    }
 }
 
 
+/**
+ * @brief Slot function triggered when an item in the month_list QTreeWidget is double-clicked.
+ * 
+ * This function handles the logic for adding the selected item to the paid_month_list QTreeWidget.
+ * It checks if the item has already been added and if not, clones the item and adds it to the paid_month_list.
+ * The addedMonths vector keeps track of the added items' indices for sorting purposes.
+ * 
+ * @param item The selected item in the month_list QTreeWidget.
+ * @param column The column index of the selected item.
+ * 
+ * @author Julius Jauga
+ */
 void MainWindow::on_month_list_itemDoubleClicked(QTreeWidgetItem *item, int column)
 {
     QTreeWidget *treeWidget = ui->month_list;
@@ -364,14 +553,21 @@ void MainWindow::on_month_list_itemDoubleClicked(QTreeWidgetItem *item, int colu
     int rowIndex = treeWidget->indexOfTopLevelItem(item);
 
     if (rowIndex != -1) {
-        qDebug() << "Double-clicked row index:" << rowIndex;
+        if (std::find(addedMonths.begin(), addedMonths.end(), rowIndex) != addedMonths.end()) {
+            return;
+        }
         QTreeWidgetItem *item = treeWidget->topLevelItem(rowIndex);
         if (item) {
             ui->paid_month_list->addTopLevelItem(item->clone());
+            addedMonths.push_back(rowIndex);
+            for(size_t i = addedMonths.size() - 1; i > 0; i--) {
+                if (addedMonths[i] < addedMonths[i-1]) {
+                    std::swap(addedMonths[i], addedMonths[i-1]);
+                    swapWidgetItems(ui->paid_month_list, i, i-1);
+                }
+            }
         }
         else return;
-        //QTreeWidgetItem *newItem = new QTreeWidgetItem();
-        //ui->paid_month_list->addTopLevelItem(ui->month_list->topLevelItem(rowIndex));
     }
     else return;
 }
