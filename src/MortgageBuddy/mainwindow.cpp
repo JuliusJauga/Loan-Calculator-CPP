@@ -90,6 +90,7 @@ void clearTreeWidget(QTreeWidget* treeWidget) {
         delete treeWidget->takeTopLevelItem(0);
     }
 }
+
 void MainWindow::on_calculate_button_clicked()
 {
     //clickedFlag = 1;
@@ -148,6 +149,11 @@ void MainWindow::on_importFromCSVButton_clicked()
 {
     importFromCSV();
 }
+
+/**
+ * @brief Filters the data for use in graph and table.
+*/
+
 void MainWindow::filterData() {
 
     if (!getData() || (is_annuit == false && is_linear == false)) {
@@ -218,7 +224,6 @@ void MainWindow::fillView(std::vector<MonthInfo> list) {
     }
 
 }
-
 
 
 /**
