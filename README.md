@@ -1,4 +1,7 @@
 # _Your Mortgage Buddy_
+
+![Showcase screenshot](res/screenshot.png)
+
 ## Team Name
 **CashFlow Calculators**
 ## Project members 
@@ -27,16 +30,21 @@ All of these components will work to build the application. The main application
 ## Technologies
 Qt library and tools for C++.
 ## To-do
-- [ ] Abilit to export and import data to and from CSV files.
+- [x] Add main logic to calculate monthly payments.
+- [x] Add a way to take user input.
+- [x] Add table and graph output to the UI.
+- [x] Ability to export and import data to and from CSV files.
 - [ ] Ability to choose export and import file name.
-- [ ] Add design to the UI.
+- [x] Add design to the UI.
+- [x] Add safeguards for user input.
 - [ ] Add documentation.
 ## Report
 The table below will contain information about the work and time spent on this project.
 | Julius Jauga | Aurelijus Lukšas | Rokas Baliutavičius |
 |------ | ------ | ------ | 
 | README.MD writing, activity case diagram  __2 h 30 min__ (**P1**)| Use case diagram __1 hour__ (**P1**)|Proofreading, use case diagram  __45 minutes__ (**P1**) |
-| Added a Qt project to the repository. Implemented basic functionality to the GUI, including layout setup and basic input checking. Created a MonthInfo class to represent monthly payment information. Implemented a Calculations class responsible for generating lists for month information. __5 h__ (**P2**) | Added ability to filter the list and graph by a time interval. Created classes for strategy design patern and implemented their usage in to the code. __3 h 30 min__ (**P2**) | Added a line graph for displaying monthly payments and ability to export said graph to PDF. __2 h 30 min__ (**P2**) |
+| Added a Qt project to the repository. Implemented basic functionality to the GUI, including layout setup and basic input checking. Created a MonthInfo class to represent monthly payment information. Implemented a Calculations class responsible for generating lists for month information. __5 h__ (**P2**) | Added ability to filter the list and graph by a time interval. Created classes for strategy design patern and implemented their usage in to the code. __3 h 30 min__ (**P2**) | Added a line graph for displaying monthly payments and ability to export said graph to PDF. __2 h 30 min__ (**P2**) | 
+|  |Implemented safeguards, added data importing and exporting from CSV files, improved filtering controls. __4 h 30 min__ (**P3**) | Added styling for the UI, fixed movement between input fields,. __6 h 30 min__ (**P3**) |
 
 **Grade will be shared equally between members.**
 
