@@ -21,8 +21,10 @@ The application will be composed of these main components:
 - **`CSVStream class`**
 - **`MonthData class`**
 - **`Calculations class`**
+- **`customQTextEdit`**
+- **`ListCreationStrategy`**
 
-All of these components will work to build the application. The main application will be the runner of Your Mortgage Buddy, Controller class will control user input and display the output, CSVStream class will be responsible for saving and loading loan information, MonthData class will hold payment information for a specific month and Calculations class will be responsible for the calculations of the desired payment schedule while also being able to handle calculations if postponement is added.
+All of these components will work to build the application. The main application will be the runner of Your Mortgage Buddy, Controller class will control user input and display the output, CSVStream class will be responsible for saving and loading loan information, MonthData class will hold payment information for a specific month and Calculations class with ListCreationStrategy class will be responsible for the calculations of the desired payment schedule while also being able to handle calculations if postponement is added. A customQTextEdit class was added to make user input more friendly.
 ## Use case diagram
 ![Use case diagram](res/use_case.png)
 ## Activity case diagram
@@ -37,7 +39,7 @@ Qt library and tools for C++.
 - [ ] Ability to choose export and import file name.
 - [x] Add design to the UI.
 - [x] Add safeguards for user input.
-- [ ] Add documentation.
+- [x] Add documentation.
 ## Report
 The table below will contain information about the work and time spent on this project.
 | Julius Jauga | Aurelijus Lukšas | Rokas Baliutavičius |
