@@ -30,9 +30,13 @@ All of these components will work to build the application. The main application
 ## Technologies
 Qt library and tools for C++.
 ## To-do
-- [ ] Abilit to export and import data to and from CSV files.
+- [x] Add main logic to calculate monthly payments.
+- [x] Add a way to take user input.
+- [x] Add table and graph output to the UI.
+- [x] Ability to export and import data to and from CSV files.
 - [ ] Ability to choose export and import file name.
-- [ ] Add design to the UI.
+- [x] Add design to the UI.
+- [x] Add safeguards for user input.
 - [ ] Add documentation.
 ## Report
 The table below will contain information about the work and time spent on this project.
