@@ -1,3 +1,25 @@
+/**
+ * @file mainwindow.cpp
+ * @brief Implementation of the MainWindow class.
+ *
+ * This file contains the implementation of the MainWindow class, which is the main window of the application.
+ * The class is responsible for handling user input, displaying the loan payment information, and drawing the monthly payment line graph.
+ * The class also provides functionality for exporting the loan payment information to a CSV file and importing it back from a CSV file.
+ * The class is part of the Loan Calculator application.
+ *
+ * @version 1.0
+ * @date 2021-05-23
+ *
+ * @see MainWindow
+ * @see mainwindow.h
+ * @see calculations.h
+ * @see customQTextEdit.h
+ * @see main.cpp
+ * @see calculations.cpp
+ * @see customQTextEdit.cpp
+ * 
+ * @authors Julius Jauga, Rokas Baliutavičius, Aurelijus Lukšas
+ */
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "customQTextEdit.h"
