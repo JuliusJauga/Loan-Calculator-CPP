@@ -14,8 +14,7 @@
 #include <algorithm>
 #include "calculations.h"
 
-QScatterSeries *series;
-QScatterSeries *greenSeries;
+QLineSeries *series;
 QChart *chart;
 QValueAxis *axisX;
 QValueAxis *axisY;
@@ -251,13 +250,13 @@ void MainWindow::setFilterLimits(int years, int months) {
  */
 
 void MainWindow::createGraph() {
-    greenSeries = new QScatterSeries();
-    series = new QScatterSeries();
+
+    series = new QLineSeries();
     chart = new QChart;
     axisX = new QValueAxis();
     axisY = new QValueAxis();
     chart->addSeries(series);
-    chart->addSeries(greenSeries);
+
     chartView = new QChartView(chart);
     ui->verticalLayout->addWidget(chartView);
     chart->addAxis(axisX, Qt::AlignBottom);
@@ -268,18 +267,11 @@ void MainWindow::createGraph() {
     // Attach the series to the axes
     series->attachAxis(axisX);
     series->attachAxis(axisY);
-    greenSeries->attachAxis(axisY);
-    greenSeries->attachAxis(axisX);
     series->setColor(QColor("#7b9d85"));
-    series->setMarkerShape(QScatterSeries::MarkerShapeCircle);
-    greenSeries->setMarkerShape(QScatterSeries::MarkerShapeCircle);
     series->setMarkerSize(1);
-    greenSeries->setMarkerSize(10);
-
-    chart->addSeries(greenSeries);
-    //QPen pen(QColor("#7b9d85"));
-    //pen.setW3idth(1);
-    //series->setPen(pen);
+    QPen pen(QColor("#7b9d85"));
+    pen.setWidth(3);
+    series->setPen(pen);
 
     QColor chartBackgroundColor("#22232a");
     chart->setBackgroundBrush(QBrush(chartBackgroundColor));
@@ -326,23 +318,12 @@ void MainWindow::createGraph() {
 
 void MainWindow::drawGraph(std::vector<MonthInfo> list) {
     series->clear();
-    greenSeries->clear();
     double biggestPayment = 0;
     for (int i = 0; i < (int)list.size(); ++i) {
         if (i+1 < filter_start || i+1 > filter_end) continue;
-
-
-        if (std::find(addedMonths.begin(), addedMonths.end(), i) != addedMonths.end()) {
-            greenSeries->append(list[i].getMonth(), list[i].getMonthlyPayment());
-        }
-        else {
-            series->append(list[i].getMonth(), list[i].getMonthlyPayment());
-        }
-
-
+        series->append(list[i].getMonth(), list[i].getMonthlyPayment());
         if (list[i].getMonthlyPayment() > biggestPayment) biggestPayment = list[i].getMonthlyPayment(); // Getting the biggest monthly payment for Y axis scale
     }
-    greenSeries->setColor(Qt::green);
     // Set range of X and Y axes
     axisX->setRange(0, list.size() + 1);
     axisY->setRange(0, biggestPayment + biggestPayment * 0.1);
