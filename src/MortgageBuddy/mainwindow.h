@@ -81,7 +81,7 @@ public:
      * 
      * @param list The list of MonthInfo objects representing the mortgage data.
      */
-    void exportToCSV(std::vector<MonthInfo> list);
+    void exportToCSV(std::vector<MonthInfo> list, QString filename);
 
     /**
      * @brief Filters the mortgage data based on the set filter limits.
@@ -91,7 +91,7 @@ public:
     /**
      * @brief Imports mortgage data from a CSV file.
      */
-    void importFromCSV();
+    void importFromCSV(QString filename);
 
 private slots:
     /**

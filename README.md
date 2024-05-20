@@ -36,7 +36,7 @@ Qt library and tools for C++.
 - [x] Add a way to take user input.
 - [x] Add table and graph output to the UI.
 - [x] Ability to export and import data to and from CSV files.
-- [ ] Ability to choose export and import file name.
+- [x] Ability to choose export and import file name.
 - [x] Add design to the UI.
 - [x] Add safeguards for user input.
 - [x] Add documentation.

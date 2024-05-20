@@ -48,6 +48,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->paid_month_list->setColumnWidth(2, 170); // Set width of column 2 to 200 pixels
     ui->paid_month_list->setColumnWidth(3, 170); // Set width of column 3 to 200 pixels
 
+    // Is always checking if startDateSlider is moved.
     connect(ui->startDateSlider, &QSlider::valueChanged, [this](int value) {
         ui->filterStartLabel->setText(QString::number(value));
         if (value > filter_end) ui->endDateSlider->setValue(value);
@@ -56,6 +57,8 @@ MainWindow::MainWindow(QWidget *parent)
         filterData();
     });
 
+
+    // Is always checking if endDateSlider is moved. 
     connect(ui->endDateSlider, &QSlider::valueChanged, [this](int value) {
         ui->filterEndLabel->setText(QString::number(value));
         if (value < filter_start) ui->startDateSlider->setValue(value);
@@ -98,11 +101,11 @@ void MainWindow::on_calculate_button_clicked()
         return;
     }
     Calculations newCalculations(loan_amount, annual_percent, years, months, delay_start, delay_end, is_annuit, is_linear);
-    // getFilterData();
+
     setFilterLimits(years, months);
     fillView(newCalculations.getList());
     drawGraph(newCalculations.getList());
-    //ui->endDateSlider->setVisible(true);
+    
 }
 
 
@@ -111,12 +114,12 @@ void MainWindow::on_annuit_box_stateChanged()
     if(ui->annuit_box->isChecked()) {
         is_linear = false;
         is_annuit = true;
-        // strategy = annuitStrategy;
-        // Calculations.setStrategy(strategy);
 
         ui->linear_box->setChecked(false);
     }
 }
+
+
 
 
 void MainWindow::on_linear_box_stateChanged()
@@ -124,8 +127,6 @@ void MainWindow::on_linear_box_stateChanged()
     if(ui->linear_box->isChecked()) {
         is_linear = true;
         is_annuit = false;
-        // strategy = linearStrategy;
-        // Calculations.setStrategy(strategy);
         ui->annuit_box->setChecked(false);
     }
 }
@@ -135,21 +136,45 @@ void MainWindow::on_saveChartPDF_clicked()
     printGraphAsPDF();
 }
 
+/**
+ * @authors Rokas Baliutavičius, Aurelijus Lukšas
+ * @brief Slot function called when the exportToCSVButton is clicked.
+*/
+
 void MainWindow::on_exportToCSVButton_clicked()
 {
     if (!getData() || (is_annuit == false && is_linear == false)) {
         return;
     }
+
+    QString filename = ui->fileNameInput->toPlainText();
+    if (filename == "") {
+        filename = "data.csv";
+    }
+
+    importFromCSV(filename);
+
     Calculations newCalculations(loan_amount, annual_percent, years, months, delay_start, delay_end, is_annuit, is_linear);
-    exportToCSV(newCalculations.getList());
+    exportToCSV(newCalculations.getList(), filename);
 }
 
+
+/**
+ * @authors Rokas Baliutavičius, Aurelijus Lukšas
+ * @brief Slot function called when the importFromCSVButton is clicked.
+*/
 void MainWindow::on_importFromCSVButton_clicked()
 {
-    importFromCSV();
+
+    QString filename = ui->fileNameInput->toPlainText();
+    if (filename == "") {
+        filename = "data.csv";
+    }
+    importFromCSV(filename);
 }
 
 /**
+ * @author Aurelijus Lukšas
  * @brief Filters the data for use in graph and table.
 */
 
@@ -364,8 +389,15 @@ void MainWindow::printGraphAsPDF() {
     painter.end();
 }
 
-void MainWindow::exportToCSV(std::vector<MonthInfo> list) {
-    QFile file("data.csv");
+/**
+ * @author Aurelijus Lukšas
+ * @brief Exports the mortgage data to a CSV file.
+ * @param list The list of MonthInfo objects representing the mortgage data.
+ * @param filename The name of the file to export data to.
+*/
+
+void MainWindow::exportToCSV(std::vector<MonthInfo> list, QString filename) {
+    QFile file(filename);
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         qDebug() << "Could not open file for writing:" << file.errorString();
         return;
@@ -386,7 +418,7 @@ void MainWindow::exportToCSV(std::vector<MonthInfo> list) {
 
     file.close();
 
-    QFile file2("inputs.csv");
+    QFile file2(filename + "_info.csv");
     if (!file2.open(QIODevice::WriteOnly | QIODevice::Text)) {
         qDebug() << "Could not open file for writing:" << file.errorString();
         return;
@@ -411,9 +443,15 @@ void MainWindow::exportToCSV(std::vector<MonthInfo> list) {
 
 }
 
-void MainWindow::importFromCSV() {
+/**
+ * @author Aurelijus Lukšas
+ * @brief Imports mortgage data from a CSV file.
+ * @param filename The name of the file to import data from.
+*/
 
-    QFile file2("inputs.csv");
+void MainWindow::importFromCSV(QString filename) {
+
+    QFile file2(filename + "_info.csv");
     if (!file2.open(QIODevice::ReadOnly | QIODevice::Text)) {
         qDebug() << "Could not open file for reading:" << file2.errorString();
         return;
@@ -458,7 +496,7 @@ void MainWindow::importFromCSV() {
 
 
 
-    QFile file("data.csv");
+    QFile file(filename);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         qDebug() << "Could not open file for reading:" << file.errorString();
         return;
