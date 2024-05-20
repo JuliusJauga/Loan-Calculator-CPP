@@ -54,4 +54,5 @@ The table below will contain information about the work and time spent on this p
 
 **Grade will be shared equally between members.**
 
-__2024-04-01__ Calculations class needs testing and fixing. Input checking should be improved. GUI layout will have to be remade.
+__2024-04-01__ __FINISHED__ Calculations class needs testing and fixing. Input checking should be improved. GUI layout will have to be remade.
+__2024-05-20__ __FINISHED__ Documentations, bug fixes, features, project finished.
