@@ -34,6 +34,7 @@ CustomQTextEdit {
 
 CustomQTextEdit:focus {
     border-color: #c4dccc;
+    outline: 0;
 }
 
 /* Buttons */
@@ -49,6 +50,7 @@ QPushButton {
 
 QPushButton:focus {
     border-color: #c4dccc;
+    outline: 0;
 }
 
 QPushButton:hover {
@@ -59,13 +61,22 @@ QPushButton:hover {
 QCheckBox {
     color: white;
     font-family: "Poppins";
-    font-size: 12px;
+    font-size: 12px
 }
 
 QCheckBox:indicator {
     border-radius: 6px;
     border: 1px solid;
     border-color: white;
+}
+
+QCheckBox::focus {
+    outline: 0;
+}
+
+QCheckBox::indicator::focus {
+    border: 2px solid #c4dccc;
+    outline: 0;
 }
 
 QCheckBox::indicator:checked {
