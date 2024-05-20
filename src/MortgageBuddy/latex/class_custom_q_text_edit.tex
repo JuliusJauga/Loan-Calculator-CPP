@@ -1,0 +1,83 @@
+\doxysection{Custom\+QText\+Edit Class Reference}
+\hypertarget{class_custom_q_text_edit}{}\label{class_custom_q_text_edit}\index{CustomQTextEdit@{CustomQTextEdit}}
+
+
+Constructor for the \doxylink{class_custom_q_text_edit}{Custom\+QText\+Edit} class.  
+
+
+
+
+{\ttfamily \#include $<$custom\+QText\+Edit.\+h$>$}
+
+Inheritance diagram for Custom\+QText\+Edit\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_custom_q_text_edit}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_custom_q_text_edit_aa9b2bc4e2dc485d5b99ef6759ce8c875}{Custom\+QText\+Edit}} (QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_custom_q_text_edit}{Custom\+QText\+Edit} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_custom_q_text_edit_a5c70e166311ea713c9b5553b06857925}{key\+Press\+Event}} (QKey\+Event \texorpdfstring{$\ast$}{*}event) override
+\begin{DoxyCompactList}\small\item\em Overrides the \doxylink{class_custom_q_text_edit_a5c70e166311ea713c9b5553b06857925}{key\+Press\+Event()} function to handle key events. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Constructor for the \doxylink{class_custom_q_text_edit}{Custom\+QText\+Edit} class. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_custom_q_text_edit_aa9b2bc4e2dc485d5b99ef6759ce8c875}\label{class_custom_q_text_edit_aa9b2bc4e2dc485d5b99ef6759ce8c875} 
+\index{CustomQTextEdit@{CustomQTextEdit}!CustomQTextEdit@{CustomQTextEdit}}
+\index{CustomQTextEdit@{CustomQTextEdit}!CustomQTextEdit@{CustomQTextEdit}}
+\doxysubsubsection{\texorpdfstring{CustomQTextEdit()}{CustomQTextEdit()}}
+{\footnotesize\ttfamily Custom\+QText\+Edit\+::\+Custom\+QText\+Edit (\begin{DoxyParamCaption}\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructs a \doxylink{class_custom_q_text_edit}{Custom\+QText\+Edit} object. 
+
+Constructor for the \doxylink{class_custom_q_text_edit}{Custom\+QText\+Edit} class.
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & The parent widget. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_custom_q_text_edit_a5c70e166311ea713c9b5553b06857925}\label{class_custom_q_text_edit_a5c70e166311ea713c9b5553b06857925} 
+\index{CustomQTextEdit@{CustomQTextEdit}!keyPressEvent@{keyPressEvent}}
+\index{keyPressEvent@{keyPressEvent}!CustomQTextEdit@{CustomQTextEdit}}
+\doxysubsubsection{\texorpdfstring{keyPressEvent()}{keyPressEvent()}}
+{\footnotesize\ttfamily void Custom\+QText\+Edit\+::key\+Press\+Event (\begin{DoxyParamCaption}\item[{QKey\+Event \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Overrides the \doxylink{class_custom_q_text_edit_a5c70e166311ea713c9b5553b06857925}{key\+Press\+Event()} function to handle key events. 
+
+Overrides the key\+Press\+Event function to handle the Tab key press event.
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & The key event.\\
+\hline
+\end{DoxyParams}
+This function is called when a key press event occurs. If the Tab key is pressed, it ignores the event and focuses on the next child widget, allowing the user to move between input fields using the Tab key. If any other key is pressed, it calls the base class\textquotesingle{}s key\+Press\+Event function to handle the event.
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & The key press event. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{custom_q_text_edit_8h}{custom\+QText\+Edit.\+h}}\item 
+\mbox{\hyperlink{custom_q_text_edit_8cpp}{custom\+QText\+Edit.\+cpp}}\end{DoxyCompactItemize}

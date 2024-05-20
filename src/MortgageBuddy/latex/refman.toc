@@ -1,0 +1,96 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Hierarchical Index}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Class Hierarchy}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Class Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Class List}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}File Index}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}File List}{5}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Class Documentation}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Annuit\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}List\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Creation\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Strategy Class Reference}{7}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Detailed Description}{8}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Member Function Documentation}{8}{subsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}createList()}{8}{subsubsection.4.1.2.1}%
+\contentsline {section}{\numberline {4.2}Calculations Class Reference}{8}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Detailed Description}{9}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Constructor \& Destructor Documentation}{10}{subsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.2.1}Calculations()}{10}{subsubsection.4.2.2.1}%
+\contentsline {subsection}{\numberline {4.2.3}Member Function Documentation}{10}{subsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.3.1}createAnnuitList()}{10}{subsubsection.4.2.3.1}%
+\contentsline {subsubsection}{\numberline {4.2.3.2}createLinearList()}{11}{subsubsection.4.2.3.2}%
+\contentsline {subsubsection}{\numberline {4.2.3.3}createList()}{11}{subsubsection.4.2.3.3}%
+\contentsline {subsubsection}{\numberline {4.2.3.4}getAnnualPercentage()}{11}{subsubsection.4.2.3.4}%
+\contentsline {subsubsection}{\numberline {4.2.3.5}getIsAnnuit()}{11}{subsubsection.4.2.3.5}%
+\contentsline {subsubsection}{\numberline {4.2.3.6}getIsLinear()}{12}{subsubsection.4.2.3.6}%
+\contentsline {subsubsection}{\numberline {4.2.3.7}getList()}{12}{subsubsection.4.2.3.7}%
+\contentsline {subsubsection}{\numberline {4.2.3.8}getLoanAmount()}{12}{subsubsection.4.2.3.8}%
+\contentsline {subsubsection}{\numberline {4.2.3.9}getMonths()}{13}{subsubsection.4.2.3.9}%
+\contentsline {subsubsection}{\numberline {4.2.3.10}getYears()}{13}{subsubsection.4.2.3.10}%
+\contentsline {subsubsection}{\numberline {4.2.3.11}recalculate()}{13}{subsubsection.4.2.3.11}%
+\contentsline {subsubsection}{\numberline {4.2.3.12}setAnnualPercentage()}{13}{subsubsection.4.2.3.12}%
+\contentsline {subsubsection}{\numberline {4.2.3.13}setIsAnnuit()}{14}{subsubsection.4.2.3.13}%
+\contentsline {subsubsection}{\numberline {4.2.3.14}setIsLinear()}{14}{subsubsection.4.2.3.14}%
+\contentsline {subsubsection}{\numberline {4.2.3.15}setLoanAmount()}{14}{subsubsection.4.2.3.15}%
+\contentsline {subsubsection}{\numberline {4.2.3.16}setMonths()}{15}{subsubsection.4.2.3.16}%
+\contentsline {subsubsection}{\numberline {4.2.3.17}setStrategy()}{15}{subsubsection.4.2.3.17}%
+\contentsline {subsubsection}{\numberline {4.2.3.18}setYears()}{15}{subsubsection.4.2.3.18}%
+\contentsline {section}{\numberline {4.3}Custom\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}QText\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Edit Class Reference}{17}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Detailed Description}{17}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Constructor \& Destructor Documentation}{17}{subsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.2.1}CustomQTextEdit()}{17}{subsubsection.4.3.2.1}%
+\contentsline {subsection}{\numberline {4.3.3}Member Function Documentation}{18}{subsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.3.1}keyPressEvent()}{18}{subsubsection.4.3.3.1}%
+\contentsline {section}{\numberline {4.4}Linear\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}List\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Creation\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Strategy Class Reference}{18}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Detailed Description}{19}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Member Function Documentation}{19}{subsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.2.1}createList()}{19}{subsubsection.4.4.2.1}%
+\contentsline {section}{\numberline {4.5}List\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Creation\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Strategy Class Reference}{20}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Detailed Description}{20}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Member Function Documentation}{20}{subsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.2.1}createList()}{20}{subsubsection.4.5.2.1}%
+\contentsline {section}{\numberline {4.6}Main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window Class Reference}{21}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Detailed Description}{21}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Constructor \& Destructor Documentation}{21}{subsection.4.6.2}%
+\contentsline {subsubsection}{\numberline {4.6.2.1}MainWindow()}{21}{subsubsection.4.6.2.1}%
+\contentsline {subsubsection}{\numberline {4.6.2.2}$\sim $MainWindow()}{22}{subsubsection.4.6.2.2}%
+\contentsline {subsection}{\numberline {4.6.3}Member Function Documentation}{22}{subsection.4.6.3}%
+\contentsline {subsubsection}{\numberline {4.6.3.1}createGraph()}{22}{subsubsection.4.6.3.1}%
+\contentsline {subsubsection}{\numberline {4.6.3.2}drawGraph()}{22}{subsubsection.4.6.3.2}%
+\contentsline {subsubsection}{\numberline {4.6.3.3}exportToCSV()}{23}{subsubsection.4.6.3.3}%
+\contentsline {subsubsection}{\numberline {4.6.3.4}fillView()}{23}{subsubsection.4.6.3.4}%
+\contentsline {subsubsection}{\numberline {4.6.3.5}filterData()}{24}{subsubsection.4.6.3.5}%
+\contentsline {subsubsection}{\numberline {4.6.3.6}importFromCSV()}{24}{subsubsection.4.6.3.6}%
+\contentsline {subsubsection}{\numberline {4.6.3.7}printGraphAsPDF()}{24}{subsubsection.4.6.3.7}%
+\contentsline {subsubsection}{\numberline {4.6.3.8}setFilterLimits()}{25}{subsubsection.4.6.3.8}%
+\contentsline {section}{\numberline {4.7}Month\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info Class Reference}{25}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Detailed Description}{26}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}Constructor \& Destructor Documentation}{26}{subsection.4.7.2}%
+\contentsline {subsubsection}{\numberline {4.7.2.1}MonthInfo()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{26}{subsubsection.4.7.2.1}%
+\contentsline {subsubsection}{\numberline {4.7.2.2}MonthInfo()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{26}{subsubsection.4.7.2.2}%
+\contentsline {subsection}{\numberline {4.7.3}Member Function Documentation}{27}{subsection.4.7.3}%
+\contentsline {subsubsection}{\numberline {4.7.3.1}getInterestPayment()}{27}{subsubsection.4.7.3.1}%
+\contentsline {subsubsection}{\numberline {4.7.3.2}getMonth()}{27}{subsubsection.4.7.3.2}%
+\contentsline {subsubsection}{\numberline {4.7.3.3}getMonthlyPayment()}{27}{subsubsection.4.7.3.3}%
+\contentsline {subsubsection}{\numberline {4.7.3.4}getRemainingBalance()}{27}{subsubsection.4.7.3.4}%
+\contentsline {subsubsection}{\numberline {4.7.3.5}operator=()}{27}{subsubsection.4.7.3.5}%
+\contentsline {subsubsection}{\numberline {4.7.3.6}setInterestPayment()}{28}{subsubsection.4.7.3.6}%
+\contentsline {subsubsection}{\numberline {4.7.3.7}setMonth()}{28}{subsubsection.4.7.3.7}%
+\contentsline {subsubsection}{\numberline {4.7.3.8}setMonthlyPayment()}{28}{subsubsection.4.7.3.8}%
+\contentsline {subsubsection}{\numberline {4.7.3.9}setRemainingBalance()}{29}{subsubsection.4.7.3.9}%
+\contentsline {chapter}{\numberline {5}File Documentation}{31}{chapter.5}%
+\contentsline {section}{\numberline {5.1}calculations.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{31}{section.5.1}%
+\contentsline {section}{\numberline {5.2}custom\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}QText\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Edit.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{32}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Detailed Description}{32}{subsection.5.2.1}%
+\contentsline {section}{\numberline {5.3}custom\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}QText\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Edit.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{32}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Detailed Description}{33}{subsection.5.3.1}%
+\contentsline {section}{\numberline {5.4}custom\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}QText\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Edit.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{33}{section.5.4}%
+\contentsline {section}{\numberline {5.5}mainwindow.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{33}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Detailed Description}{34}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Function Documentation}{35}{subsection.5.5.2}%
+\contentsline {subsubsection}{\numberline {5.5.2.1}clearTreeWidget()}{35}{subsubsection.5.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.5.2.2}swapWidgetItems()}{35}{subsubsection.5.5.2.2}%
+\contentsline {section}{\numberline {5.6}mainwindow.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{35}{section.5.6}%
+\contentsline {subsection}{\numberline {5.6.1}Detailed Description}{36}{subsection.5.6.1}%
+\contentsline {section}{\numberline {5.7}mainwindow.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{36}{section.5.7}%
+\contentsline {section}{\numberline {5.8}monthinfo.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{37}{section.5.8}%
+\contentsline {section}{\numberline {5.9}monthinfo.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{37}{section.5.9}%
+\contentsline {section}{\numberline {5.10}monthinfo.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{37}{section.5.10}%

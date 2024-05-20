@@ -1,0 +1,461 @@
+\doxysection{Calculations Class Reference}
+\hypertarget{class_calculations}{}\label{class_calculations}\index{Calculations@{Calculations}}
+
+
+The \doxylink{class_calculations}{Calculations} class represents a loan calculator that performs various calculations related to a loan.  
+
+
+
+
+{\ttfamily \#include $<$calculations.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_calculations_a1a6d3ad34a1356c187f88dfccdad0719}\label{class_calculations_a1a6d3ad34a1356c187f88dfccdad0719} 
+{\bfseries Calculations} ()
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_calculations}{Calculations} object with default values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_calculations_aded28229ae9047b20f979045899f02c1}{Calculations}} (double loan\+\_\+amount, double annual\+\_\+percentage, int years, int months, int start, int end, bool is\+\_\+annuit, bool is\+\_\+linear)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_calculations}{Calculations} object with the specified parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_calculations_adabeae319c064482787e8a26ae31947c}{recalculate}} ()
+\begin{DoxyCompactList}\small\item\em Recalculates the loan based on the current parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_calculations_a54a8359ea03b629aea8b3cc8ecfaea6a}{set\+Loan\+Amount}} (double amount)
+\begin{DoxyCompactList}\small\item\em Sets the loan amount. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_calculations_a24e83c67ccd13962d2325a37e811e434}{set\+Annual\+Percentage}} (double percentage)
+\begin{DoxyCompactList}\small\item\em Sets the annual interest rate percentage. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_calculations_a08fa11afc1c751a8526732c87154d420}{set\+Years}} (int years)
+\begin{DoxyCompactList}\small\item\em Sets the number of years for the loan. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_calculations_a71d0be18402e491045c64cf8829174cc}{set\+Months}} (int months)
+\begin{DoxyCompactList}\small\item\em Sets the number of months for the loan. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_calculations_a41c575acfb12fa01d3cda977ac0cd7fc}{set\+Is\+Annuit}} (bool is\+Annuit)
+\begin{DoxyCompactList}\small\item\em Sets whether the loan is annuity-\/based. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_calculations_ae04337f44b73e37b37921baa0ca66b64}{set\+Is\+Linear}} (bool is\+Linear)
+\begin{DoxyCompactList}\small\item\em Sets whether the loan is linear-\/based. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_calculations_ac0c143afdaa8fbeb7e525903da66f8b7}{get\+Loan\+Amount}} () const
+\begin{DoxyCompactList}\small\item\em Gets the loan amount. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_calculations_a63abcc43aa445e13731f111c6484b043}{get\+Annual\+Percentage}} () const
+\begin{DoxyCompactList}\small\item\em Gets the annual interest rate percentage. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_calculations_ac58d1f680c194a9472688790fd7715a2}{get\+Years}} () const
+\begin{DoxyCompactList}\small\item\em Gets the number of years for the loan. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_calculations_a216f6d973df137cbb3399ccbae227f53}{get\+Months}} () const
+\begin{DoxyCompactList}\small\item\em Gets the number of months for the loan. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_calculations_a164ff6d44e6aac10ac3a999e22cf21a4}{get\+Is\+Annuit}} () const
+\begin{DoxyCompactList}\small\item\em Gets whether the loan is annuity-\/based. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_calculations_a16830250237de885ef980a5a784c5106}{get\+Is\+Linear}} () const
+\begin{DoxyCompactList}\small\item\em Gets whether the loan is linear-\/based. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_month_info}{Month\+Info}} $>$ \mbox{\hyperlink{class_calculations_a2c42571650a700542877539a2837fa04}{get\+List}} () const
+\begin{DoxyCompactList}\small\item\em Gets the list of month information for the loan. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_calculations_a91fa1a0dbb8e088b401f8e84983625b2}{create\+List}} ()
+\begin{DoxyCompactList}\small\item\em Creates the list of month information for the loan. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_calculations_ab957558b35cae4d84310a11a43e87c21}{create\+Annuit\+List}} ()
+\begin{DoxyCompactList}\small\item\em Creates the list of month information for the annuity-\/based loan. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_calculations_a2d6b38a82157a76242d651043ab025e7}{create\+Linear\+List}} ()
+\begin{DoxyCompactList}\small\item\em Creates the list of month information for the linear-\/based loan. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_calculations_abe216424f081341d647fd3bb0ec8e8ac}{set\+Strategy}} (\mbox{\hyperlink{class_list_creation_strategy}{List\+Creation\+Strategy}} \texorpdfstring{$\ast$}{*}new\+Strategy)
+\begin{DoxyCompactList}\small\item\em Sets the strategy for creating the list of month information. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_calculations}{Calculations} class represents a loan calculator that performs various calculations related to a loan. 
+
+Implementation file for the \doxylink{class_calculations}{Calculations} class.
+
+This file contains the implementation of the \doxylink{class_calculations}{Calculations} class, which is responsible for performing loan calculations. The class provides methods to set and get loan parameters, recalculate the loan, and create a list of monthly payment information. The calculations can be done using either annuity or linear repayment methods. Also able to set the strategy of calculations.
+
+\begin{DoxyAuthor}{Authors}
+Julius Jauga, Aurelijus Lukšas 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_calculations_aded28229ae9047b20f979045899f02c1}\label{class_calculations_aded28229ae9047b20f979045899f02c1} 
+\index{Calculations@{Calculations}!Calculations@{Calculations}}
+\index{Calculations@{Calculations}!Calculations@{Calculations}}
+\doxysubsubsection{\texorpdfstring{Calculations()}{Calculations()}}
+{\footnotesize\ttfamily Calculations\+::\+Calculations (\begin{DoxyParamCaption}\item[{double}]{loan\+\_\+amount,  }\item[{double}]{annual\+\_\+percentage,  }\item[{int}]{years,  }\item[{int}]{months,  }\item[{int}]{start,  }\item[{int}]{end,  }\item[{bool}]{is\+\_\+annuit,  }\item[{bool}]{is\+\_\+linear }\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_calculations}{Calculations} object with the specified parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em loan\+\_\+amount} & The loan amount. \\
+\hline
+{\em annual\+\_\+percentage} & The annual interest rate percentage. \\
+\hline
+{\em years} & The number of years for the loan. \\
+\hline
+{\em months} & The number of months for the loan. \\
+\hline
+{\em start} & The starting month for the loan calculations. \\
+\hline
+{\em end} & The ending month for the loan calculations. \\
+\hline
+{\em is\+\_\+annuit} & A flag indicating whether the loan is annuity-\/based. \\
+\hline
+{\em is\+\_\+linear} & A flag indicating whether the loan is linear-\/based.\\
+\hline
+{\em loan\+\_\+amount} & The loan amount. \\
+\hline
+{\em annual\+\_\+percentage} & The annual interest rate as a percentage. \\
+\hline
+{\em years} & The number of years for the loan. \\
+\hline
+{\em months} & The number of months for the loan. \\
+\hline
+{\em start} & The start delay in months. \\
+\hline
+{\em end} & The end delay in months. \\
+\hline
+{\em is\+\_\+annuit} & A boolean indicating whether the loan is annuity-\/based. \\
+\hline
+{\em is\+\_\+linear} & A boolean indicating whether the loan is linear-\/based.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Julius Jauga 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_calculations_ab957558b35cae4d84310a11a43e87c21}\label{class_calculations_ab957558b35cae4d84310a11a43e87c21} 
+\index{Calculations@{Calculations}!createAnnuitList@{createAnnuitList}}
+\index{createAnnuitList@{createAnnuitList}!Calculations@{Calculations}}
+\doxysubsubsection{\texorpdfstring{createAnnuitList()}{createAnnuitList()}}
+{\footnotesize\ttfamily void Calculations\+::create\+Annuit\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates the list of month information for the annuity-\/based loan. 
+
+This method creates a list of monthly payment information using the annuity repayment method.
+
+\begin{DoxyAuthor}{Authors}
+Julius Jauga 
+\end{DoxyAuthor}
+\Hypertarget{class_calculations_a2d6b38a82157a76242d651043ab025e7}\label{class_calculations_a2d6b38a82157a76242d651043ab025e7} 
+\index{Calculations@{Calculations}!createLinearList@{createLinearList}}
+\index{createLinearList@{createLinearList}!Calculations@{Calculations}}
+\doxysubsubsection{\texorpdfstring{createLinearList()}{createLinearList()}}
+{\footnotesize\ttfamily void Calculations\+::create\+Linear\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates the list of month information for the linear-\/based loan. 
+
+This method creates a list of monthly payment information using the linear repayment method.
+
+\begin{DoxyAuthor}{Authors}
+Julius Jauga 
+\end{DoxyAuthor}
+\Hypertarget{class_calculations_a91fa1a0dbb8e088b401f8e84983625b2}\label{class_calculations_a91fa1a0dbb8e088b401f8e84983625b2} 
+\index{Calculations@{Calculations}!createList@{createList}}
+\index{createList@{createList}!Calculations@{Calculations}}
+\doxysubsubsection{\texorpdfstring{createList()}{createList()}}
+{\footnotesize\ttfamily void Calculations\+::create\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates the list of month information for the loan. 
+
+This method selects strategy and calls method the creates a list of monthly payment information using the annuity or linear repayment method.
+
+\begin{DoxyAuthor}{Authors}
+Julius Jauga, Aurelijus Lukšas 
+\end{DoxyAuthor}
+\Hypertarget{class_calculations_a63abcc43aa445e13731f111c6484b043}\label{class_calculations_a63abcc43aa445e13731f111c6484b043} 
+\index{Calculations@{Calculations}!getAnnualPercentage@{getAnnualPercentage}}
+\index{getAnnualPercentage@{getAnnualPercentage}!Calculations@{Calculations}}
+\doxysubsubsection{\texorpdfstring{getAnnualPercentage()}{getAnnualPercentage()}}
+{\footnotesize\ttfamily double Calculations\+::get\+Annual\+Percentage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the annual interest rate percentage. 
+
+Gets the annual interest rate as a percentage.
+
+\begin{DoxyReturn}{Returns}
+The annual interest rate percentage.
+
+The annual interest rate.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Julius Jauga 
+\end{DoxyAuthor}
+\Hypertarget{class_calculations_a164ff6d44e6aac10ac3a999e22cf21a4}\label{class_calculations_a164ff6d44e6aac10ac3a999e22cf21a4} 
+\index{Calculations@{Calculations}!getIsAnnuit@{getIsAnnuit}}
+\index{getIsAnnuit@{getIsAnnuit}!Calculations@{Calculations}}
+\doxysubsubsection{\texorpdfstring{getIsAnnuit()}{getIsAnnuit()}}
+{\footnotesize\ttfamily bool Calculations\+::get\+Is\+Annuit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets whether the loan is annuity-\/based. 
+
+\begin{DoxyReturn}{Returns}
+A flag indicating whether the loan is annuity-\/based.
+
+A boolean indicating whether the loan is annuity-\/based.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Julius Jauga 
+\end{DoxyAuthor}
+\Hypertarget{class_calculations_a16830250237de885ef980a5a784c5106}\label{class_calculations_a16830250237de885ef980a5a784c5106} 
+\index{Calculations@{Calculations}!getIsLinear@{getIsLinear}}
+\index{getIsLinear@{getIsLinear}!Calculations@{Calculations}}
+\doxysubsubsection{\texorpdfstring{getIsLinear()}{getIsLinear()}}
+{\footnotesize\ttfamily bool Calculations\+::get\+Is\+Linear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets whether the loan is linear-\/based. 
+
+\begin{DoxyReturn}{Returns}
+A flag indicating whether the loan is linear-\/based.
+
+A boolean indicating whether the loan is linear-\/based.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Julius Jauga 
+\end{DoxyAuthor}
+\Hypertarget{class_calculations_a2c42571650a700542877539a2837fa04}\label{class_calculations_a2c42571650a700542877539a2837fa04} 
+\index{Calculations@{Calculations}!getList@{getList}}
+\index{getList@{getList}!Calculations@{Calculations}}
+\doxysubsubsection{\texorpdfstring{getList()}{getList()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_month_info}{Month\+Info}} $>$ Calculations\+::get\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the list of month information for the loan. 
+
+Gets the list of monthly payment information.
+
+\begin{DoxyReturn}{Returns}
+The list of month information.
+
+The list of monthly payment information.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Julius Jauga 
+\end{DoxyAuthor}
+\Hypertarget{class_calculations_ac0c143afdaa8fbeb7e525903da66f8b7}\label{class_calculations_ac0c143afdaa8fbeb7e525903da66f8b7} 
+\index{Calculations@{Calculations}!getLoanAmount@{getLoanAmount}}
+\index{getLoanAmount@{getLoanAmount}!Calculations@{Calculations}}
+\doxysubsubsection{\texorpdfstring{getLoanAmount()}{getLoanAmount()}}
+{\footnotesize\ttfamily double Calculations\+::get\+Loan\+Amount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the loan amount. 
+
+\begin{DoxyReturn}{Returns}
+The loan amount.
+
+The loan amount.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Julius Jauga 
+\end{DoxyAuthor}
+\Hypertarget{class_calculations_a216f6d973df137cbb3399ccbae227f53}\label{class_calculations_a216f6d973df137cbb3399ccbae227f53} 
+\index{Calculations@{Calculations}!getMonths@{getMonths}}
+\index{getMonths@{getMonths}!Calculations@{Calculations}}
+\doxysubsubsection{\texorpdfstring{getMonths()}{getMonths()}}
+{\footnotesize\ttfamily int Calculations\+::get\+Months (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the number of months for the loan. 
+
+\begin{DoxyReturn}{Returns}
+The number of months for the loan.
+
+The number of months.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Julius Jauga 
+\end{DoxyAuthor}
+\Hypertarget{class_calculations_ac58d1f680c194a9472688790fd7715a2}\label{class_calculations_ac58d1f680c194a9472688790fd7715a2} 
+\index{Calculations@{Calculations}!getYears@{getYears}}
+\index{getYears@{getYears}!Calculations@{Calculations}}
+\doxysubsubsection{\texorpdfstring{getYears()}{getYears()}}
+{\footnotesize\ttfamily int Calculations\+::get\+Years (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the number of years for the loan. 
+
+\begin{DoxyReturn}{Returns}
+The number of years for the loan.
+
+The number of years.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Julius Jauga 
+\end{DoxyAuthor}
+\Hypertarget{class_calculations_adabeae319c064482787e8a26ae31947c}\label{class_calculations_adabeae319c064482787e8a26ae31947c} 
+\index{Calculations@{Calculations}!recalculate@{recalculate}}
+\index{recalculate@{recalculate}!Calculations@{Calculations}}
+\doxysubsubsection{\texorpdfstring{recalculate()}{recalculate()}}
+{\footnotesize\ttfamily void Calculations\+::recalculate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Recalculates the loan based on the current parameters. 
+
+Recalculates the list of monthly payment information.
+
+\begin{DoxyAuthor}{Author}
+Julius Jauga 
+\end{DoxyAuthor}
+\Hypertarget{class_calculations_a24e83c67ccd13962d2325a37e811e434}\label{class_calculations_a24e83c67ccd13962d2325a37e811e434} 
+\index{Calculations@{Calculations}!setAnnualPercentage@{setAnnualPercentage}}
+\index{setAnnualPercentage@{setAnnualPercentage}!Calculations@{Calculations}}
+\doxysubsubsection{\texorpdfstring{setAnnualPercentage()}{setAnnualPercentage()}}
+{\footnotesize\ttfamily void Calculations\+::set\+Annual\+Percentage (\begin{DoxyParamCaption}\item[{double}]{annual\+\_\+percentage }\end{DoxyParamCaption})}
+
+
+
+Sets the annual interest rate percentage. 
+
+Sets the annual interest rate as a percentage.
+
+
+\begin{DoxyParams}{Parameters}
+{\em percentage} & The annual interest rate percentage.\\
+\hline
+{\em annual\+\_\+percentage} & The new annual interest rate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Julius Jauga 
+\end{DoxyAuthor}
+\Hypertarget{class_calculations_a41c575acfb12fa01d3cda977ac0cd7fc}\label{class_calculations_a41c575acfb12fa01d3cda977ac0cd7fc} 
+\index{Calculations@{Calculations}!setIsAnnuit@{setIsAnnuit}}
+\index{setIsAnnuit@{setIsAnnuit}!Calculations@{Calculations}}
+\doxysubsubsection{\texorpdfstring{setIsAnnuit()}{setIsAnnuit()}}
+{\footnotesize\ttfamily void Calculations\+::set\+Is\+Annuit (\begin{DoxyParamCaption}\item[{bool}]{is\+\_\+annuit }\end{DoxyParamCaption})}
+
+
+
+Sets whether the loan is annuity-\/based. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Annuit} & A flag indicating whether the loan is annuity-\/based.\\
+\hline
+{\em is\+\_\+annuit} & A boolean indicating whether the loan is annuity-\/based.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Julius Jauga 
+\end{DoxyAuthor}
+\Hypertarget{class_calculations_ae04337f44b73e37b37921baa0ca66b64}\label{class_calculations_ae04337f44b73e37b37921baa0ca66b64} 
+\index{Calculations@{Calculations}!setIsLinear@{setIsLinear}}
+\index{setIsLinear@{setIsLinear}!Calculations@{Calculations}}
+\doxysubsubsection{\texorpdfstring{setIsLinear()}{setIsLinear()}}
+{\footnotesize\ttfamily void Calculations\+::set\+Is\+Linear (\begin{DoxyParamCaption}\item[{bool}]{is\+\_\+linear }\end{DoxyParamCaption})}
+
+
+
+Sets whether the loan is linear-\/based. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Linear} & A flag indicating whether the loan is linear-\/based.\\
+\hline
+{\em is\+\_\+linear} & A boolean indicating whether the loan is linear-\/based.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Julius Jauga 
+\end{DoxyAuthor}
+\Hypertarget{class_calculations_a54a8359ea03b629aea8b3cc8ecfaea6a}\label{class_calculations_a54a8359ea03b629aea8b3cc8ecfaea6a} 
+\index{Calculations@{Calculations}!setLoanAmount@{setLoanAmount}}
+\index{setLoanAmount@{setLoanAmount}!Calculations@{Calculations}}
+\doxysubsubsection{\texorpdfstring{setLoanAmount()}{setLoanAmount()}}
+{\footnotesize\ttfamily void Calculations\+::set\+Loan\+Amount (\begin{DoxyParamCaption}\item[{double}]{loan\+\_\+amount }\end{DoxyParamCaption})}
+
+
+
+Sets the loan amount. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & The loan amount.\\
+\hline
+{\em loan\+\_\+amount} & The new loan amount.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Julius Jauga 
+\end{DoxyAuthor}
+\Hypertarget{class_calculations_a71d0be18402e491045c64cf8829174cc}\label{class_calculations_a71d0be18402e491045c64cf8829174cc} 
+\index{Calculations@{Calculations}!setMonths@{setMonths}}
+\index{setMonths@{setMonths}!Calculations@{Calculations}}
+\doxysubsubsection{\texorpdfstring{setMonths()}{setMonths()}}
+{\footnotesize\ttfamily void Calculations\+::set\+Months (\begin{DoxyParamCaption}\item[{int}]{months }\end{DoxyParamCaption})}
+
+
+
+Sets the number of months for the loan. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em months} & The number of months for the loan.\\
+\hline
+{\em months} & The new number of months.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Julius Jauga 
+\end{DoxyAuthor}
+\Hypertarget{class_calculations_abe216424f081341d647fd3bb0ec8e8ac}\label{class_calculations_abe216424f081341d647fd3bb0ec8e8ac} 
+\index{Calculations@{Calculations}!setStrategy@{setStrategy}}
+\index{setStrategy@{setStrategy}!Calculations@{Calculations}}
+\doxysubsubsection{\texorpdfstring{setStrategy()}{setStrategy()}}
+{\footnotesize\ttfamily void Calculations\+::set\+Strategy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_list_creation_strategy}{List\+Creation\+Strategy}} \texorpdfstring{$\ast$}{*}}]{new\+Strategy }\end{DoxyParamCaption})}
+
+
+
+Sets the strategy for creating the list of month information. 
+
+Sets the strategy for creating the list of monthly payment information.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Strategy} & The new strategy for creating the list.\\
+\hline
+{\em new\+Strategy} & The new strategy to be used.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Julius Jauga 
+\end{DoxyAuthor}
+\Hypertarget{class_calculations_a08fa11afc1c751a8526732c87154d420}\label{class_calculations_a08fa11afc1c751a8526732c87154d420} 
+\index{Calculations@{Calculations}!setYears@{setYears}}
+\index{setYears@{setYears}!Calculations@{Calculations}}
+\doxysubsubsection{\texorpdfstring{setYears()}{setYears()}}
+{\footnotesize\ttfamily void Calculations\+::set\+Years (\begin{DoxyParamCaption}\item[{int}]{years }\end{DoxyParamCaption})}
+
+
+
+Sets the number of years for the loan. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em years} & The number of years for the loan.\\
+\hline
+{\em years} & The new number of years.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Julius Jauga 
+\end{DoxyAuthor}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+calculations.\+h\item 
+calculations.\+cpp\end{DoxyCompactItemize}

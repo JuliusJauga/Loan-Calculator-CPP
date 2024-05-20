@@ -1,0 +1,127 @@
+\doxysection{mainwindow.\+cpp File Reference}
+\hypertarget{mainwindow_8cpp}{}\label{mainwindow_8cpp}\index{mainwindow.cpp@{mainwindow.cpp}}
+
+
+Implementation of the \doxylink{class_main_window}{Main\+Window} class.  
+
+
+{\ttfamily \#include "{}mainwindow.\+h"{}}\newline
+{\ttfamily \#include "{}ui\+\_\+mainwindow.\+h"{}}\newline
+{\ttfamily \#include "{}custom\+QText\+Edit.\+h"{}}\newline
+{\ttfamily \#include $<$QTree\+Widget$>$}\newline
+{\ttfamily \#include $<$QTree\+Widget\+Item$>$}\newline
+{\ttfamily \#include $<$Qt\+Widgets$>$}\newline
+{\ttfamily \#include $<$Qt\+Charts$>$}\newline
+{\ttfamily \#include $<$QPdf\+Writer$>$}\newline
+{\ttfamily \#include $<$QPainter$>$}\newline
+{\ttfamily \#include $<$QBrush$>$}\newline
+{\ttfamily \#include $<$QFont$>$}\newline
+{\ttfamily \#include $<$QColor$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include "{}calculations.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{mainwindow_8cpp_a8bd2558f1ae3d11fbb2356c4751f08ff}{clear\+Tree\+Widget}} (QTree\+Widget \texorpdfstring{$\ast$}{*}tree\+Widget)
+\begin{DoxyCompactList}\small\item\em Clears the items in a QTree\+Widget. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mainwindow_8cpp_a715bec3adc81d4257cd0936dc711aa9e}{swap\+Widget\+Items}} (QTree\+Widget \texorpdfstring{$\ast$}{*}tree\+Widget, int first\+Index, int second\+Index)
+\begin{DoxyCompactList}\small\item\em Swaps the items at the specified indices in a QTree\+Widget. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{mainwindow_8cpp_a8988e18c7f9896266a6f7b981b7179f3}\label{mainwindow_8cpp_a8988e18c7f9896266a6f7b981b7179f3} 
+QLine\+Series \texorpdfstring{$\ast$}{*} {\bfseries series}
+\begin{DoxyCompactList}\small\item\em Line series for the graph. \end{DoxyCompactList}\item 
+\Hypertarget{mainwindow_8cpp_aaceb63ac33b6188c446114f7121f8b18}\label{mainwindow_8cpp_aaceb63ac33b6188c446114f7121f8b18} 
+QChart \texorpdfstring{$\ast$}{*} {\bfseries chart}
+\begin{DoxyCompactList}\small\item\em Chart for the graph. \end{DoxyCompactList}\item 
+\Hypertarget{mainwindow_8cpp_a50a57c5073a57b797753e42060280058}\label{mainwindow_8cpp_a50a57c5073a57b797753e42060280058} 
+QValue\+Axis \texorpdfstring{$\ast$}{*} {\bfseries axisX}
+\begin{DoxyCompactList}\small\item\em X axis for the graph. \end{DoxyCompactList}\item 
+\Hypertarget{mainwindow_8cpp_afc241e8e3e48ae484eadb335410cf043}\label{mainwindow_8cpp_afc241e8e3e48ae484eadb335410cf043} 
+QValue\+Axis \texorpdfstring{$\ast$}{*} {\bfseries axisY}
+\begin{DoxyCompactList}\small\item\em Y axis for the graph. \end{DoxyCompactList}\item 
+\Hypertarget{mainwindow_8cpp_aac6f80e1d15e51afee4c3b574e619d8c}\label{mainwindow_8cpp_aac6f80e1d15e51afee4c3b574e619d8c} 
+QChart\+View \texorpdfstring{$\ast$}{*} {\bfseries chart\+View}
+\begin{DoxyCompactList}\small\item\em Chart view for the graph. \end{DoxyCompactList}\item 
+\Hypertarget{mainwindow_8cpp_ad458e786bfd2a660cea843e703f3925f}\label{mainwindow_8cpp_ad458e786bfd2a660cea843e703f3925f} 
+bool {\bfseries clicked\+Flag} = 0
+\begin{DoxyCompactList}\small\item\em Flag to check if the calculate button was clicked. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the \doxylink{class_main_window}{Main\+Window} class. 
+
+This file contains the implementation of the \doxylink{class_main_window}{Main\+Window} class, which is the main window of the application. The class is responsible for handling user input, displaying the loan payment information, and drawing the monthly payment line graph. The class also provides functionality for exporting the loan payment information to a CSV file and importing it back from a CSV file. The class is part of the Loan Calculator application.
+
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2021-\/05-\/23
+\end{DoxyDate}
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_main_window}{Main\+Window} 
+
+\doxylink{mainwindow_8h}{mainwindow.\+h} 
+
+\doxylink{calculations_8h_source}{calculations.\+h} 
+
+\doxylink{custom_q_text_edit_8h}{custom\+QText\+Edit.\+h} 
+
+main.\+cpp 
+
+calculations.\+cpp 
+
+\doxylink{custom_q_text_edit_8cpp}{custom\+QText\+Edit.\+cpp}
+\end{DoxySeeAlso}
+\begin{DoxyAuthor}{Authors}
+Julius Jauga, Rokas Baliutavičius, Aurelijus Lukšas 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{mainwindow_8cpp_a8bd2558f1ae3d11fbb2356c4751f08ff}\label{mainwindow_8cpp_a8bd2558f1ae3d11fbb2356c4751f08ff} 
+\index{mainwindow.cpp@{mainwindow.cpp}!clearTreeWidget@{clearTreeWidget}}
+\index{clearTreeWidget@{clearTreeWidget}!mainwindow.cpp@{mainwindow.cpp}}
+\doxysubsubsection{\texorpdfstring{clearTreeWidget()}{clearTreeWidget()}}
+{\footnotesize\ttfamily void clear\+Tree\+Widget (\begin{DoxyParamCaption}\item[{QTree\+Widget \texorpdfstring{$\ast$}{*}}]{tree\+Widget }\end{DoxyParamCaption})}
+
+
+
+Clears the items in a QTree\+Widget. 
+
+This function removes all items from the specified QTree\+Widget.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tree\+Widget} & The QTree\+Widget to be cleared.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Julius Jauga 
+\end{DoxyAuthor}
+\Hypertarget{mainwindow_8cpp_a715bec3adc81d4257cd0936dc711aa9e}\label{mainwindow_8cpp_a715bec3adc81d4257cd0936dc711aa9e} 
+\index{mainwindow.cpp@{mainwindow.cpp}!swapWidgetItems@{swapWidgetItems}}
+\index{swapWidgetItems@{swapWidgetItems}!mainwindow.cpp@{mainwindow.cpp}}
+\doxysubsubsection{\texorpdfstring{swapWidgetItems()}{swapWidgetItems()}}
+{\footnotesize\ttfamily void swap\+Widget\+Items (\begin{DoxyParamCaption}\item[{QTree\+Widget \texorpdfstring{$\ast$}{*}}]{tree\+Widget,  }\item[{int}]{first\+Index,  }\item[{int}]{second\+Index }\end{DoxyParamCaption})}
+
+
+
+Swaps the items at the specified indices in a QTree\+Widget. 
+
+This function swaps the items at the given indices in the specified QTree\+Widget. If both indices are valid and the items exist, the function removes the items from their original positions and inserts them at each other\textquotesingle{}s positions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tree\+Widget} & The QTree\+Widget in which the items are to be swapped. \\
+\hline
+{\em first\+Index} & The index of the first item to be swapped. \\
+\hline
+{\em second\+Index} & The index of the second item to be swapped.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Julius Jauga 
+\end{DoxyAuthor}

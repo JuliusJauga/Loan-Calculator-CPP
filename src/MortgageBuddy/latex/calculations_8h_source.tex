@@ -1,0 +1,96 @@
+\doxysection{calculations.\+h}
+\hypertarget{calculations_8h_source}{}\label{calculations_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ CALCULATIONS\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ CALCULATIONS\_H}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{monthinfo_8h}{monthinfo.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_calculations}{Calculations}};}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_list_creation_strategy}{ListCreationStrategy}}\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_calculations}{Calculations}}*\ calculations;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_list_creation_strategy}{ListCreationStrategy}}()\ \{\};}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_list_creation_strategy}{ListCreationStrategy}}(\mbox{\hyperlink{class_calculations}{Calculations}}*\ calc)\ :\ calculations(calc)\ \{\}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ createList()\ =\ 0;}
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_annuit_list_creation_strategy}{AnnuitListCreationStrategy}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_list_creation_strategy}{ListCreationStrategy}}\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_calculations}{Calculations}}*\ calculations;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_annuit_list_creation_strategy}{AnnuitListCreationStrategy}}(\mbox{\hyperlink{class_calculations}{Calculations}}*\ calc)\ :\ calculations(calc)\ \{\}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_annuit_list_creation_strategy_a9e345e2b3068542ed3f043ed0479776a}{createList}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00036\ \};}
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_linear_list_creation_strategy}{LinearListCreationStrategy}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_list_creation_strategy}{ListCreationStrategy}}\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_calculations}{Calculations}}*\ calculations;}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_linear_list_creation_strategy}{LinearListCreationStrategy}}(\mbox{\hyperlink{class_calculations}{Calculations}}*\ calc)\ :\ calculations(calc)\ \{\}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_linear_list_creation_strategy_a4e0e61fdfb472a132d3f1b1e1e20dac5}{createList}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00047\ \};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_calculations}{Calculations}}}
+\DoxyCodeLine{00054\ \{}
+\DoxyCodeLine{00055\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{class_calculations_a1a6d3ad34a1356c187f88dfccdad0719}{Calculations}}();}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00072\ \ \ \ \ \mbox{\hyperlink{class_calculations_a1a6d3ad34a1356c187f88dfccdad0719}{Calculations}}(\textcolor{keywordtype}{double}\ loan\_amount,\ \textcolor{keywordtype}{double}\ annual\_percentage,\ \textcolor{keywordtype}{int}\ years,\ \textcolor{keywordtype}{int}\ months,\ \textcolor{keywordtype}{int}\ start,\ \textcolor{keywordtype}{int}\ end,\ \textcolor{keywordtype}{bool}\ is\_annuit,\ \textcolor{keywordtype}{bool}\ is\_linear);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_calculations_adabeae319c064482787e8a26ae31947c}{recalculate}}();}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_calculations_a54a8359ea03b629aea8b3cc8ecfaea6a}{setLoanAmount}}(\textcolor{keywordtype}{double}\ amount);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_calculations_a24e83c67ccd13962d2325a37e811e434}{setAnnualPercentage}}(\textcolor{keywordtype}{double}\ percentage);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_calculations_a08fa11afc1c751a8526732c87154d420}{setYears}}(\textcolor{keywordtype}{int}\ years);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_calculations_a71d0be18402e491045c64cf8829174cc}{setMonths}}(\textcolor{keywordtype}{int}\ months);}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_calculations_a41c575acfb12fa01d3cda977ac0cd7fc}{setIsAnnuit}}(\textcolor{keywordtype}{bool}\ isAnnuit);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_calculations_ae04337f44b73e37b37921baa0ca66b64}{setIsLinear}}(\textcolor{keywordtype}{bool}\ isLinear);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_calculations_ac0c143afdaa8fbeb7e525903da66f8b7}{getLoanAmount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_calculations_a63abcc43aa445e13731f111c6484b043}{getAnnualPercentage}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_calculations_ac58d1f680c194a9472688790fd7715a2}{getYears}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_calculations_a216f6d973df137cbb3399ccbae227f53}{getMonths}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_calculations_a164ff6d44e6aac10ac3a999e22cf21a4}{getIsAnnuit}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_calculations_a16830250237de885ef980a5a784c5106}{getIsLinear}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00155\ \ \ \ \ std::vector<MonthInfo>\ \mbox{\hyperlink{class_calculations_a2c42571650a700542877539a2837fa04}{getList}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_calculations_a91fa1a0dbb8e088b401f8e84983625b2}{createList}}();}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_calculations_ab957558b35cae4d84310a11a43e87c21}{createAnnuitList}}();}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_calculations_a2d6b38a82157a76242d651043ab025e7}{createLinearList}}();}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_calculations_abe216424f081341d647fd3bb0ec8e8ac}{setStrategy}}(\mbox{\hyperlink{class_list_creation_strategy}{ListCreationStrategy}}*\ newStrategy);}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00179\ \ \ \ \ \mbox{\hyperlink{class_list_creation_strategy}{ListCreationStrategy}}*\ strategy;\ }
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keywordtype}{double}\ loan\_amount;\ }
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keywordtype}{double}\ annual\_percentage;\ }
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordtype}{int}\ years;\ }
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordtype}{int}\ months;\ }
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_annuit;\ }
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_linear;\ }
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keywordtype}{int}\ delay\_start;\ }
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordtype}{int}\ delay\_end;\ }
+\DoxyCodeLine{00188\ \ \ \ \ std::vector<MonthInfo>\ month\_list;\ }
+\DoxyCodeLine{00189\ \};}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CALCULATIONS\_H}}
+
+\end{DoxyCode}

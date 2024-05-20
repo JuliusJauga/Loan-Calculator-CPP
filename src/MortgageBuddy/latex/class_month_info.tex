@@ -1,0 +1,256 @@
+\doxysection{Month\+Info Class Reference}
+\hypertarget{class_month_info}{}\label{class_month_info}\index{MonthInfo@{MonthInfo}}
+
+
+Represents information about a specific month in a loan calculation.  
+
+
+
+
+{\ttfamily \#include $<$monthinfo.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_month_info_a9df21dba28512a9c7b01afe4116309b0}{Month\+Info}} (int month, double monthly\+\_\+payment, double interest\+\_\+payment, double remaining\+\_\+balance)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_month_info}{Month\+Info} object with the given parameters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_month_info_a86f509de5b22d09d4e2b0fe17bd29740}{Month\+Info}} (const \mbox{\hyperlink{class_month_info}{Month\+Info}} \&other)
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_month_info}{Month\+Info}} \& \mbox{\hyperlink{class_month_info_a5daf919fe34bd2bb76094be779c4ea2e}{operator=}} (const \mbox{\hyperlink{class_month_info}{Month\+Info}} \&other)
+\begin{DoxyCompactList}\small\item\em Assignment operator. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_month_info_a2b39df798ccf03f4bc5c3c53ef18aad7}{set\+Month}} (int month)
+\begin{DoxyCompactList}\small\item\em Sets the month number. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_month_info_aed545efbb4ee4dbbb3009b4d36364f97}{set\+Monthly\+Payment}} (double monthly\+\_\+payment)
+\begin{DoxyCompactList}\small\item\em Sets the monthly payment amount. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_month_info_a91355722546853152b7f61249677e8c5}{set\+Interest\+Payment}} (double interest\+\_\+payment)
+\begin{DoxyCompactList}\small\item\em Sets the interest payment amount. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_month_info_aad5e8c87fd333f149794dd14c80c6977}{set\+Remaining\+Balance}} (double remaining\+\_\+balance)
+\begin{DoxyCompactList}\small\item\em Sets the remaining balance amount. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_month_info_ac5b68bb15d262a53ff4d82faaa0f29c9}{get\+Month}} () const
+\begin{DoxyCompactList}\small\item\em Returns the month number. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_month_info_a9ac17b1561da9062b345371493e1702f}{get\+Monthly\+Payment}} () const
+\begin{DoxyCompactList}\small\item\em Returns the monthly payment amount. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_month_info_a1de4e730afb4b4e893fc9b3646ffa54a}{get\+Interest\+Payment}} () const
+\begin{DoxyCompactList}\small\item\em Returns the interest payment amount. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_month_info_a1c3310f8313ab2d20b599d6f2c77770d}{get\+Remaining\+Balance}} () const
+\begin{DoxyCompactList}\small\item\em Returns the remaining balance amount. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents information about a specific month in a loan calculation. 
+
+The \doxylink{class_month_info}{Month\+Info} class stores information such as the month number, monthly payment, interest payment, and remaining balance for a specific month in a loan calculation.
+
+\begin{DoxyAuthor}{Author}
+Julius Jauga
+
+Julius Jauga 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_month_info_a9df21dba28512a9c7b01afe4116309b0}\label{class_month_info_a9df21dba28512a9c7b01afe4116309b0} 
+\index{MonthInfo@{MonthInfo}!MonthInfo@{MonthInfo}}
+\index{MonthInfo@{MonthInfo}!MonthInfo@{MonthInfo}}
+\doxysubsubsection{\texorpdfstring{MonthInfo()}{MonthInfo()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Month\+Info\+::\+Month\+Info (\begin{DoxyParamCaption}\item[{int}]{month,  }\item[{double}]{monthly\+\_\+payment,  }\item[{double}]{interest\+\_\+payment,  }\item[{double}]{remaining\+\_\+balance }\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_month_info}{Month\+Info} object with the given parameters. 
+
+Constructs a \doxylink{class_month_info}{Month\+Info} object with default values.
+
+
+\begin{DoxyParams}{Parameters}
+{\em month} & The month number. \\
+\hline
+{\em monthly\+\_\+payment} & The monthly payment amount. \\
+\hline
+{\em interest\+\_\+payment} & The interest payment amount. \\
+\hline
+{\em remaining\+\_\+balance} & The remaining balance amount. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_month_info_a86f509de5b22d09d4e2b0fe17bd29740}\label{class_month_info_a86f509de5b22d09d4e2b0fe17bd29740} 
+\index{MonthInfo@{MonthInfo}!MonthInfo@{MonthInfo}}
+\index{MonthInfo@{MonthInfo}!MonthInfo@{MonthInfo}}
+\doxysubsubsection{\texorpdfstring{MonthInfo()}{MonthInfo()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Month\+Info\+::\+Month\+Info (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_month_info}{Month\+Info}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Copy constructor. 
+
+Constructs a \doxylink{class_month_info}{Month\+Info} object by copying another \doxylink{class_month_info}{Month\+Info} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{class_month_info}{Month\+Info} object to be copied. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_month_info_a1de4e730afb4b4e893fc9b3646ffa54a}\label{class_month_info_a1de4e730afb4b4e893fc9b3646ffa54a} 
+\index{MonthInfo@{MonthInfo}!getInterestPayment@{getInterestPayment}}
+\index{getInterestPayment@{getInterestPayment}!MonthInfo@{MonthInfo}}
+\doxysubsubsection{\texorpdfstring{getInterestPayment()}{getInterestPayment()}}
+{\footnotesize\ttfamily double Month\+Info\+::get\+Interest\+Payment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the interest payment amount. 
+
+Gets the interest payment amount.
+
+\begin{DoxyReturn}{Returns}
+The interest payment amount. 
+\end{DoxyReturn}
+\Hypertarget{class_month_info_ac5b68bb15d262a53ff4d82faaa0f29c9}\label{class_month_info_ac5b68bb15d262a53ff4d82faaa0f29c9} 
+\index{MonthInfo@{MonthInfo}!getMonth@{getMonth}}
+\index{getMonth@{getMonth}!MonthInfo@{MonthInfo}}
+\doxysubsubsection{\texorpdfstring{getMonth()}{getMonth()}}
+{\footnotesize\ttfamily int Month\+Info\+::get\+Month (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the month number. 
+
+Gets the month number.
+
+\begin{DoxyReturn}{Returns}
+The month number. 
+\end{DoxyReturn}
+\Hypertarget{class_month_info_a9ac17b1561da9062b345371493e1702f}\label{class_month_info_a9ac17b1561da9062b345371493e1702f} 
+\index{MonthInfo@{MonthInfo}!getMonthlyPayment@{getMonthlyPayment}}
+\index{getMonthlyPayment@{getMonthlyPayment}!MonthInfo@{MonthInfo}}
+\doxysubsubsection{\texorpdfstring{getMonthlyPayment()}{getMonthlyPayment()}}
+{\footnotesize\ttfamily double Month\+Info\+::get\+Monthly\+Payment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the monthly payment amount. 
+
+Gets the monthly payment amount.
+
+\begin{DoxyReturn}{Returns}
+The monthly payment amount. 
+\end{DoxyReturn}
+\Hypertarget{class_month_info_a1c3310f8313ab2d20b599d6f2c77770d}\label{class_month_info_a1c3310f8313ab2d20b599d6f2c77770d} 
+\index{MonthInfo@{MonthInfo}!getRemainingBalance@{getRemainingBalance}}
+\index{getRemainingBalance@{getRemainingBalance}!MonthInfo@{MonthInfo}}
+\doxysubsubsection{\texorpdfstring{getRemainingBalance()}{getRemainingBalance()}}
+{\footnotesize\ttfamily double Month\+Info\+::get\+Remaining\+Balance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the remaining balance amount. 
+
+Gets the remaining balance amount.
+
+\begin{DoxyReturn}{Returns}
+The remaining balance amount. 
+\end{DoxyReturn}
+\Hypertarget{class_month_info_a5daf919fe34bd2bb76094be779c4ea2e}\label{class_month_info_a5daf919fe34bd2bb76094be779c4ea2e} 
+\index{MonthInfo@{MonthInfo}!operator=@{operator=}}
+\index{operator=@{operator=}!MonthInfo@{MonthInfo}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_month_info}{Month\+Info}} \& Month\+Info\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_month_info}{Month\+Info}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Assignment operator. 
+
+Assigns the values of another \doxylink{class_month_info}{Month\+Info} object to this object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{class_month_info}{Month\+Info} object to be assigned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the assigned \doxylink{class_month_info}{Month\+Info} object.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{class_month_info}{Month\+Info} object to be assigned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to this \doxylink{class_month_info}{Month\+Info} object. 
+\end{DoxyReturn}
+\Hypertarget{class_month_info_a91355722546853152b7f61249677e8c5}\label{class_month_info_a91355722546853152b7f61249677e8c5} 
+\index{MonthInfo@{MonthInfo}!setInterestPayment@{setInterestPayment}}
+\index{setInterestPayment@{setInterestPayment}!MonthInfo@{MonthInfo}}
+\doxysubsubsection{\texorpdfstring{setInterestPayment()}{setInterestPayment()}}
+{\footnotesize\ttfamily void Month\+Info\+::set\+Interest\+Payment (\begin{DoxyParamCaption}\item[{double}]{new\+Interest\+Payment }\end{DoxyParamCaption})}
+
+
+
+Sets the interest payment amount. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em interest\+\_\+payment} & The interest payment amount.\\
+\hline
+{\em new\+Interest\+Payment} & The new interest payment amount. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_month_info_a2b39df798ccf03f4bc5c3c53ef18aad7}\label{class_month_info_a2b39df798ccf03f4bc5c3c53ef18aad7} 
+\index{MonthInfo@{MonthInfo}!setMonth@{setMonth}}
+\index{setMonth@{setMonth}!MonthInfo@{MonthInfo}}
+\doxysubsubsection{\texorpdfstring{setMonth()}{setMonth()}}
+{\footnotesize\ttfamily void Month\+Info\+::set\+Month (\begin{DoxyParamCaption}\item[{int}]{new\+Month }\end{DoxyParamCaption})}
+
+
+
+Sets the month number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em month} & The month number.\\
+\hline
+{\em new\+Month} & The new month number. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_month_info_aed545efbb4ee4dbbb3009b4d36364f97}\label{class_month_info_aed545efbb4ee4dbbb3009b4d36364f97} 
+\index{MonthInfo@{MonthInfo}!setMonthlyPayment@{setMonthlyPayment}}
+\index{setMonthlyPayment@{setMonthlyPayment}!MonthInfo@{MonthInfo}}
+\doxysubsubsection{\texorpdfstring{setMonthlyPayment()}{setMonthlyPayment()}}
+{\footnotesize\ttfamily void Month\+Info\+::set\+Monthly\+Payment (\begin{DoxyParamCaption}\item[{double}]{new\+Monthly\+Payment }\end{DoxyParamCaption})}
+
+
+
+Sets the monthly payment amount. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em monthly\+\_\+payment} & The monthly payment amount.\\
+\hline
+{\em new\+Monthly\+Payment} & The new monthly payment amount. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_month_info_aad5e8c87fd333f149794dd14c80c6977}\label{class_month_info_aad5e8c87fd333f149794dd14c80c6977} 
+\index{MonthInfo@{MonthInfo}!setRemainingBalance@{setRemainingBalance}}
+\index{setRemainingBalance@{setRemainingBalance}!MonthInfo@{MonthInfo}}
+\doxysubsubsection{\texorpdfstring{setRemainingBalance()}{setRemainingBalance()}}
+{\footnotesize\ttfamily void Month\+Info\+::set\+Remaining\+Balance (\begin{DoxyParamCaption}\item[{double}]{new\+Remaining\+Balance }\end{DoxyParamCaption})}
+
+
+
+Sets the remaining balance amount. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em remaining\+\_\+balance} & The remaining balance amount.\\
+\hline
+{\em new\+Remaining\+Balance} & The new remaining balance amount. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{monthinfo_8h}{monthinfo.\+h}}\item 
+\mbox{\hyperlink{monthinfo_8cpp}{monthinfo.\+cpp}}\end{DoxyCompactItemize}

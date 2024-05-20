@@ -1,0 +1,255 @@
+\doxysection{Main\+Window Class Reference}
+\hypertarget{class_main_window}{}\label{class_main_window}\index{MainWindow@{MainWindow}}
+
+
+The \doxylink{class_main_window}{Main\+Window} class represents the main window of the Mortgage Buddy application.  
+
+
+
+
+{\ttfamily \#include $<$mainwindow.\+h$>$}
+
+Inheritance diagram for Main\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_main_window}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_main_window_a996c5a2b6f77944776856f08ec30858d}{Main\+Window}} (QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_main_window}{Main\+Window} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{\texorpdfstring{$\sim$}{\string~}\+Main\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Destroys the \doxylink{class_main_window}{Main\+Window} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_afce1411fa5de59492a11b5d1a868ec51}{create\+Graph}} ()
+\begin{DoxyCompactList}\small\item\em Creates the graph view for displaying mortgage data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_a29a8e426c80016bf0802323267d3ad42}{fill\+View}} (std\+::vector$<$ \mbox{\hyperlink{class_month_info}{Month\+Info}} $>$ list)
+\begin{DoxyCompactList}\small\item\em Fills the graph view with data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_a02591603bea060855c1bd87685a17f03}{set\+Filter\+Limits}} (int years, int months)
+\begin{DoxyCompactList}\small\item\em Sets the filter limits for the mortgage data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_a0815523d77f6f630f27dafe75a64673c}{draw\+Graph}} (std\+::vector$<$ \mbox{\hyperlink{class_month_info}{Month\+Info}} $>$ list)
+\begin{DoxyCompactList}\small\item\em Draws the graph based on the mortgage data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_a93b4d0d24a48318c48e8e714ee6f2afe}{print\+Graph\+As\+PDF}} ()
+\begin{DoxyCompactList}\small\item\em Prints the graph as a PDF file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_a7f11c324d6cf87a344573f248936f1f6}{export\+To\+CSV}} (std\+::vector$<$ \mbox{\hyperlink{class_month_info}{Month\+Info}} $>$ list, QString filename)
+\begin{DoxyCompactList}\small\item\em Exports the mortgage data to a CSV file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_a511ebd8ae899a1397b8ec334bec150f1}{filter\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Filters the mortgage data based on the set filter limits. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_a6a144bc80e6a95c04a0574d82ae980bf}{import\+From\+CSV}} (QString filename)
+\begin{DoxyCompactList}\small\item\em Imports mortgage data from a CSV file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_main_window}{Main\+Window} class represents the main window of the Mortgage Buddy application. 
+
+This class inherits from QMain\+Window and provides functionality for creating and managing the user interface, as well as performing various calculations and operations related to mortgage calculations. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_main_window_a996c5a2b6f77944776856f08ec30858d}\label{class_main_window_a996c5a2b6f77944776856f08ec30858d} 
+\index{MainWindow@{MainWindow}!MainWindow@{MainWindow}}
+\index{MainWindow@{MainWindow}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{MainWindow()}{MainWindow()}}
+{\footnotesize\ttfamily Main\+Window\+::\+Main\+Window (\begin{DoxyParamCaption}\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_main_window}{Main\+Window} object. 
+
+Constructor for the \doxylink{class_main_window}{Main\+Window} class.
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & The parent widget.\\
+\hline
+{\em parent} & The parent widget of the \doxylink{class_main_window}{Main\+Window}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Authors}
+Julius Jauga, Rokas Baliutavičius 
+\end{DoxyAuthor}
+\Hypertarget{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}\label{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7} 
+\index{MainWindow@{MainWindow}!````~MainWindow@{\texorpdfstring{$\sim$}{\string~}MainWindow}}
+\index{````~MainWindow@{\texorpdfstring{$\sim$}{\string~}MainWindow}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}MainWindow()}{\string~MainWindow()}}
+{\footnotesize\ttfamily Main\+Window\+::\texorpdfstring{$\sim$}{\string~}\+Main\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroys the \doxylink{class_main_window}{Main\+Window} object. 
+
+Destructor for the \doxylink{class_main_window}{Main\+Window} class. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_main_window_afce1411fa5de59492a11b5d1a868ec51}\label{class_main_window_afce1411fa5de59492a11b5d1a868ec51} 
+\index{MainWindow@{MainWindow}!createGraph@{createGraph}}
+\index{createGraph@{createGraph}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{createGraph()}{createGraph()}}
+{\footnotesize\ttfamily void Main\+Window\+::create\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates the graph view for displaying mortgage data. 
+
+Creates line graph for later use.
+
+This method initializes components needed for displaying the monthly payment line graph. This includes adding X and Y axes to the graph, setting their titles and numeration format.
+
+\begin{DoxyAuthor}{Author}
+Rokas Baliutavičius 
+\end{DoxyAuthor}
+\Hypertarget{class_main_window_a0815523d77f6f630f27dafe75a64673c}\label{class_main_window_a0815523d77f6f630f27dafe75a64673c} 
+\index{MainWindow@{MainWindow}!drawGraph@{drawGraph}}
+\index{drawGraph@{drawGraph}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{drawGraph()}{drawGraph()}}
+{\footnotesize\ttfamily void Main\+Window\+::draw\+Graph (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_month_info}{Month\+Info}} $>$}]{list }\end{DoxyParamCaption})}
+
+
+
+Draws the graph based on the mortgage data. 
+
+Re-\/draws the line graph with calculated data.
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & The list of \doxylink{class_month_info}{Month\+Info} objects representing the mortgage data.\\
+\hline
+\end{DoxyParams}
+This method is used for re-\/drawing the monthly payment line graph upon pressing "{}\+Calculate"{} button. The process includes adding new data to the series as well as adjusting the scale of the axes based on the new data.
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & The vector of \doxylink{class_month_info}{Month\+Info} objects containing the loan payment information.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Rokas Baliutavičius 
+\end{DoxyAuthor}
+\Hypertarget{class_main_window_a7f11c324d6cf87a344573f248936f1f6}\label{class_main_window_a7f11c324d6cf87a344573f248936f1f6} 
+\index{MainWindow@{MainWindow}!exportToCSV@{exportToCSV}}
+\index{exportToCSV@{exportToCSV}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{exportToCSV()}{exportToCSV()}}
+{\footnotesize\ttfamily void Main\+Window\+::export\+To\+CSV (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_month_info}{Month\+Info}} $>$}]{list,  }\item[{QString}]{filename }\end{DoxyParamCaption})}
+
+
+
+Exports the mortgage data to a CSV file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & The list of \doxylink{class_month_info}{Month\+Info} objects representing the mortgage data.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Aurelijus Lukšas 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em list} & The list of \doxylink{class_month_info}{Month\+Info} objects representing the mortgage data. \\
+\hline
+{\em filename} & The name of the file to export data to. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_main_window_a29a8e426c80016bf0802323267d3ad42}\label{class_main_window_a29a8e426c80016bf0802323267d3ad42} 
+\index{MainWindow@{MainWindow}!fillView@{fillView}}
+\index{fillView@{fillView}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{fillView()}{fillView()}}
+{\footnotesize\ttfamily void Main\+Window\+::fill\+View (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_month_info}{Month\+Info}} $>$}]{list }\end{DoxyParamCaption})}
+
+
+
+Fills the graph view with data. 
+
+Fills the view with data from a vector of \doxylink{class_month_info}{Month\+Info} objects.
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & The list of \doxylink{class_month_info}{Month\+Info} objects representing the mortgage data.\\
+\hline
+\end{DoxyParams}
+This method clears the month\+\_\+list widget and populates it with data from the provided vector. Each \doxylink{class_month_info}{Month\+Info} object in the vector represents a month\textquotesingle{}s worth of information for a loan payment. The data includes the month number, monthly payment, interest payment, and remaining balance.
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & The vector of \doxylink{class_month_info}{Month\+Info} objects containing the loan payment information.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Julius Jauga 
+\end{DoxyAuthor}
+\Hypertarget{class_main_window_a511ebd8ae899a1397b8ec334bec150f1}\label{class_main_window_a511ebd8ae899a1397b8ec334bec150f1} 
+\index{MainWindow@{MainWindow}!filterData@{filterData}}
+\index{filterData@{filterData}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{filterData()}{filterData()}}
+{\footnotesize\ttfamily void Main\+Window\+::filter\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Filters the mortgage data based on the set filter limits. 
+
+Filters the data for use in graph and table.
+
+\begin{DoxyAuthor}{Author}
+Aurelijus Lukšas 
+\end{DoxyAuthor}
+\Hypertarget{class_main_window_a6a144bc80e6a95c04a0574d82ae980bf}\label{class_main_window_a6a144bc80e6a95c04a0574d82ae980bf} 
+\index{MainWindow@{MainWindow}!importFromCSV@{importFromCSV}}
+\index{importFromCSV@{importFromCSV}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{importFromCSV()}{importFromCSV()}}
+{\footnotesize\ttfamily void Main\+Window\+::import\+From\+CSV (\begin{DoxyParamCaption}\item[{QString}]{filename }\end{DoxyParamCaption})}
+
+
+
+Imports mortgage data from a CSV file. 
+
+\begin{DoxyAuthor}{Author}
+Aurelijus Lukšas 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the file to import data from. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_main_window_a93b4d0d24a48318c48e8e714ee6f2afe}\label{class_main_window_a93b4d0d24a48318c48e8e714ee6f2afe} 
+\index{MainWindow@{MainWindow}!printGraphAsPDF@{printGraphAsPDF}}
+\index{printGraphAsPDF@{printGraphAsPDF}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{printGraphAsPDF()}{printGraphAsPDF()}}
+{\footnotesize\ttfamily void Main\+Window\+::print\+Graph\+As\+PDF (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Prints the graph as a PDF file. 
+
+Saves the line graph to a PDF file.
+
+\begin{DoxyAuthor}{Author}
+Rokas Baliutavičius 
+\end{DoxyAuthor}
+\Hypertarget{class_main_window_a02591603bea060855c1bd87685a17f03}\label{class_main_window_a02591603bea060855c1bd87685a17f03} 
+\index{MainWindow@{MainWindow}!setFilterLimits@{setFilterLimits}}
+\index{setFilterLimits@{setFilterLimits}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{setFilterLimits()}{setFilterLimits()}}
+{\footnotesize\ttfamily void Main\+Window\+::set\+Filter\+Limits (\begin{DoxyParamCaption}\item[{int}]{years,  }\item[{int}]{months }\end{DoxyParamCaption})}
+
+
+
+Sets the filter limits for the mortgage data. 
+
+Sets the limits of the filter sliders.
+
+
+\begin{DoxyParams}{Parameters}
+{\em years} & The number of years to include in the filter. \\
+\hline
+{\em months} & The number of months to include in the filter.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Aurelijus Lukšas 
+\end{DoxyAuthor}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{mainwindow_8h}{mainwindow.\+h}}\item 
+\mbox{\hyperlink{mainwindow_8cpp}{mainwindow.\+cpp}}\end{DoxyCompactItemize}

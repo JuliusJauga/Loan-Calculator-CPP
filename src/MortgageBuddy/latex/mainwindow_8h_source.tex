@@ -1,0 +1,84 @@
+\doxysection{mainwindow.\+h}
+\hypertarget{mainwindow_8h_source}{}\label{mainwindow_8h_source}\mbox{\hyperlink{mainwindow_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ MAINWINDOW\_H}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ MAINWINDOW\_H}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <QMainWindow>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <QTCharts>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <QChartView>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <QLineSeries>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{monthinfo_8h}{monthinfo.h}}"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}calculations.h"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ QT\_BEGIN\_NAMESPACE}
+\DoxyCodeLine{00019\ \textcolor{keyword}{namespace\ }Ui\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_main_window}{MainWindow}};}
+\DoxyCodeLine{00021\ \}}
+\DoxyCodeLine{00022\ QT\_END\_NAMESPACE}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_main_window}{MainWindow}}\ :\ \textcolor{keyword}{public}\ QMainWindow}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{class_main_window_a996c5a2b6f77944776856f08ec30858d}{MainWindow}}(QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{\string~MainWindow}}();}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_afce1411fa5de59492a11b5d1a868ec51}{createGraph}}();}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_a29a8e426c80016bf0802323267d3ad42}{fillView}}(std::vector<MonthInfo>\ list);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_a02591603bea060855c1bd87685a17f03}{setFilterLimits}}(\textcolor{keywordtype}{int}\ years,\ \textcolor{keywordtype}{int}\ months);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_a0815523d77f6f630f27dafe75a64673c}{drawGraph}}(std::vector<MonthInfo>\ list);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_a93b4d0d24a48318c48e8e714ee6f2afe}{printGraphAsPDF}}();}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_a7f11c324d6cf87a344573f248936f1f6}{exportToCSV}}(std::vector<MonthInfo>\ list,\ QString\ filename);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_a511ebd8ae899a1397b8ec334bec150f1}{filterData}}();}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_a6a144bc80e6a95c04a0574d82ae980bf}{importFromCSV}}(QString\ filename);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_calculate\_button\_clicked();}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_annuit\_box\_stateChanged();}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_linear\_box\_stateChanged();}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_saveChartPDF\_clicked();}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_exportToCSVButton\_clicked();}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_importFromCSVButton\_clicked();}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_month\_list\_itemDoubleClicked(QTreeWidgetItem\ *item,\ \textcolor{keywordtype}{int}\ column);}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00136\ \ \ \ \ \mbox{\hyperlink{class_list_creation_strategy}{ListCreationStrategy}}*\ strategy;\ }
+\DoxyCodeLine{00137\ \ \ \ \ \mbox{\hyperlink{class_annuit_list_creation_strategy}{AnnuitListCreationStrategy}}*\ annuitStrategy;\ }
+\DoxyCodeLine{00138\ \ \ \ \ \mbox{\hyperlink{class_linear_list_creation_strategy}{LinearListCreationStrategy}}*\ linearStrategy;\ }
+\DoxyCodeLine{00139\ \ \ \ \ Ui::MainWindow\ *ui;\ }
+\DoxyCodeLine{00140\ \ \ \ \ std::vector<int>\ addedMonths;\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{double}\ loan\_amount;\ }
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordtype}{double}\ annual\_percent;\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{int}\ years;\ }
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordtype}{int}\ months;\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{int}\ delay\_start;\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{int}\ delay\_end;\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{int}\ filter\_start;\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{int}\ filter\_end;\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_annuit;\ }
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_linear;\ }
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordtype}{int}\ getData();}
+\DoxyCodeLine{00158\ \};}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MAINWINDOW\_H}}
+
+\end{DoxyCode}
