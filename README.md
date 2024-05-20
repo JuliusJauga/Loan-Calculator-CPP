@@ -30,7 +30,11 @@ All of these components will work to build the application. The main application
 ## Activity case diagram
 ![Diagram](res/activity.png)
 ## Technologies
-Qt library and tools for C++.
+- Qt library and tools for C++
+- Doxygen
+- TexLive
+## Documentation
+Latest documentation file version can be found [here](Documentation_2024-05-20.pdf).
 ## To-do
 - [x] Add main logic to calculate monthly payments.
 - [x] Add a way to take user input.
