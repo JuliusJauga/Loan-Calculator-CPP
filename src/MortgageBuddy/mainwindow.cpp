@@ -36,14 +36,19 @@
 #include <algorithm>
 #include "calculations.h"
 
-QLineSeries *series;
-QChart *chart;
-QValueAxis *axisX;
-QValueAxis *axisY;
-QChartView *chartView;
+QLineSeries *series; ///< Line series for the graph
+QChart *chart;     ///< Chart for the graph
+QValueAxis *axisX; ///< X axis for the graph
+QValueAxis *axisY; ///< Y axis for the graph
+QChartView *chartView; ///< Chart view for the graph
 
-bool clickedFlag = 0;
+bool clickedFlag = 0; ///< Flag to check if the calculate button was clicked
 
+/**
+ * @brief Constructor for the MainWindow class.
+ * @param parent The parent widget of the MainWindow.
+ * @authors Julius Jauga, Rokas Baliutavičius
+*/
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -96,6 +101,9 @@ MainWindow::MainWindow(QWidget *parent)
     createGraph();
 }
 
+/**
+ * @brief Destructor for the MainWindow class.
+*/
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -115,6 +123,10 @@ void clearTreeWidget(QTreeWidget* treeWidget) {
     }
 }
 
+/**
+ * @brief Slot function called when the clear_button is clicked.
+ * @author Julius Jauga
+*/
 void MainWindow::on_calculate_button_clicked()
 {
     //clickedFlag = 1;
@@ -130,7 +142,10 @@ void MainWindow::on_calculate_button_clicked()
     
 }
 
-
+/**
+ * @brief Slot function called when the annuit_box checkbox is checked or unchecked.
+ * @author Julius Jauga
+*/
 void MainWindow::on_annuit_box_stateChanged()
 {
     if(ui->annuit_box->isChecked()) {
@@ -143,7 +158,10 @@ void MainWindow::on_annuit_box_stateChanged()
 
 
 
-
+/**
+ * @brief Slot function called when the linear_box checkbox is checked or unchecked.
+ * @author Julius Jauga
+*/
 void MainWindow::on_linear_box_stateChanged()
 {
     if(ui->linear_box->isChecked()) {
@@ -153,6 +171,10 @@ void MainWindow::on_linear_box_stateChanged()
     }
 }
 
+/**
+ * @brief Slot function called when the saveChartPDF button is clicked.
+ * @author Rokas Baliutavičius
+*/
 void MainWindow::on_saveChartPDF_clicked()
 {
     printGraphAsPDF();
