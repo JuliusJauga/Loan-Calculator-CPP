@@ -57,3 +57,5 @@ The table below will contain information about the work and time spent on this p
 __2024-04-01__ __FINISHED__ Calculations class needs testing and fixing. Input checking should be improved. GUI layout will have to be remade.
 
 __2024-05-20__ __FINISHED__ Documentations, bug fixes, features, project finished.
+## Feedback
+`Aurelijus Lukšas` - This project was a valuable learning experience. Not only did it lead me to learning more about __C++__ on my own, such as design patterns, multi-file programs, and gaining a better overall understanding of classes, but it also challenged me in many ways. Such as reading other people’s **spaghetti code** and learning new technologies used in collaboration with __C++__ (Qt library and software). Not only was it a great learning experience, but it was also quite enjoyable.
