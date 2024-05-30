@@ -59,3 +59,5 @@ __2024-04-01__ __FINISHED__ Calculations class needs testing and fixing. Input c
 __2024-05-20__ __FINISHED__ Documentations, bug fixes, features, project finished.
 ## Feedback
 `Aurelijus Lukšas` - This project was a valuable learning experience. Not only did it lead me to learning more about __C++__ on my own, such as design patterns, multi-file programs, and gaining a better overall understanding of classes, but it also challenged me in many ways. Such as reading other people’s **spaghetti code** and learning new technologies used in collaboration with __C++__ (Qt library and software). Not only was it a great learning experience, but it was also quite enjoyable.
+
+`Rokas Baliutavičius` - This project was definitely very benefitial for learning development in c++. I feel it's always useful to pick up new skills, so I am glad to have learnt to use QT tools, which did take some time to pick up and get used to. It was an enjoyable project to take up and see come to life.
